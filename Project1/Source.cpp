@@ -92,7 +92,7 @@ sec = temp;
 printf("%i", first);
 printf("%i", sec);
 */
-
+/*
 int num = 25;
 int main()
 {
@@ -105,3 +105,36 @@ int main()
 	system("pause");
 	return 0;
 }
+*/
+/*
+{
+Number 5
+int main();
+	int i = 0;
+	float f = 0;
+	char ch = 0;
+	std::cin >> i >> ch >> f;
+	std::cout << "i:" << i << "\nch:" << ch << "\nf:" << f << std::endl;
+}
+Answers:
+	a:  i:1  ch:A  f:45
+	b:  i:1  ch:A  f:45
+	c:  i:1  ch:9  f:45
+	d:  i:1  ch:9  f:45
+	e:  i:0  ch:A  f:0
+	f:  i:1  ch:B  f:0
+
+Number 6
+	#3,6,15,24,30
+	average: 8
+*/
+/*int main ()
+{
+	char A;
+	char Z;
+	std::cin >> A >> Z;
+	int mid = (A + Z) / 2;
+	printf("%c", mid);
+	system("pause");
+}
+*/
