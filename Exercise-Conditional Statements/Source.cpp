@@ -30,19 +30,19 @@ int main()
 	system("pause");
 	return 0;
 	*/
-	/*
+	
 	//Answer 3; Problem 3
-	int num[5];
-	int i = 0;
-	num[i] = 0;
-	for(i=0;i<100;i++)
-	std::cout << num[i];
+	//int num[5];
+	//int i = 0;
+	//num[i] = 0;
+	//for(i=0;i<100;i++)
+	//std::cout << num[i];
 
-	for (int i = 0; i < 100; i++)
-	{
+	//for (int i = 0; i < 100; i++)
+	//{
 
-	}
-	*/
+	//}
+
 
 	/*
 	Answer 4; Problem 4
@@ -73,35 +73,70 @@ int main()
 	*/
 
 	//Answer 6; Problem 6
-	
+	/*
 	int a;
 	int b;
 	char doom;
 	std::cin >> a >> doom >> b;
-	switch ((int)doom)
+	switch (doom)
 	{
-	case 1:
+	case '+':
 		std::cout << a + b;
 		break;
 
-	case 2:
+	case '-':
 		std::cout << a - b;
 		break;
-	case 3:
+	case '*':
 		std::cout << a*b;
 		break;
-	case 4:
+	case '/':
 		std::cout << a / b;
-	case 5:
+	case '%':
 		std::cout << a%b;
 	default:
-		;
-		system("pause");
+		break;
+		
 	}
-
+	system("pause");
+	*/
 	//Answer 7; Problem 7
 
+	//int Jan = 31;
+	//int Feb = 29;
+	//int Mar = 31;
+	//int Apr = 30;
+	//int May = 31;
+	//int Jun = 30;
+	//int Jul = 31;
+	//int Aug = 31;
+	//int Sep = 30;
+	//int Oct = 31;
+	//int Nov = 30;
+	//int Dec = 31;
+	int mon[12];
+	mon[0] = 31;
+	mon[1] = 29;
+	mon[2] = 31;
+	mon[3] = 30;
+	mon[4] = 31;
+	mon[5] = 30;
+	mon[6] = 31;
+	mon[7] = 31;
+	mon[8] = 30;
+	mon[9] = 31;
+	mon[10] = 30;
+	mon[11] = 31;
+	int input;
+	std::cin >> input;
+	//not finished
+	printf("%i", input);
+	system("pause");
+
 	
+	 
+
+
 
 
 }
