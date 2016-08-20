@@ -101,42 +101,36 @@ int main()
 	system("pause");
 	*/
 	//Answer 7; Problem 7
-
-	//int Jan = 31;
-	//int Feb = 29;
-	//int Mar = 31;
-	//int Apr = 30;
-	//int May = 31;
-	//int Jun = 30;
-	//int Jul = 31;
-	//int Aug = 31;
-	//int Sep = 30;
-	//int Oct = 31;
-	//int Nov = 30;
-	//int Dec = 31;
-	int mon[12];
-	mon[0] = 31;
-	mon[1] = 29;
-	mon[2] = 31;
-	mon[3] = 30;
-	mon[4] = 31;
-	mon[5] = 30;
-	mon[6] = 31;
-	mon[7] = 31;
-	mon[8] = 30;
-	mon[9] = 31;
-	mon[10] = 30;
-	mon[11] = 31;
-	int input;
-	std::cin >> input;
-	//not finished
-	printf("%i", input);
-	system("pause");
-
-	
-	 
-
-
-
-
+/*
+std::cout << "Please enter 0-11 for months";
+using std::endl;
+int mon[12];
+mon[0] = 31;
+mon[1] = 29;
+mon[2] = 31;
+mon[3] = 30;
+mon[4] = 31;
+mon[5] = 30;
+mon[6] = 31;
+mon[7] = 31;
+mon[8] = 30;
+mon[9] = 31;
+mon[10] = 30;
+mon[11] = 31;
+int input;
+std::cin >> input;
+if (input < 0)
+{
+	std::cout << "There are no negative months";
+}
+else if (input > 11)
+{
+	std::cout << "There are only 12 months";
+}
+else if (mon[input])
+{
+	printf("%i", mon[input]);
+}
+system("pause");
+*/
 }
