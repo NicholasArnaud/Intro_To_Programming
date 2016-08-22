@@ -133,4 +133,13 @@ else if (mon[input])
 }
 system("pause");
 */
+	{
+		bool flag = true;
+		int numPos = 35, numNeg = -55;
+		char frstChar = 'J', scndChar = 'O';
+		double frstPrice = 5.60;
+
+		system("pause");
+	}
+
 }
