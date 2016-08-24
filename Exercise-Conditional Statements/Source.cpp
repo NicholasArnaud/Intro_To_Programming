@@ -133,13 +133,42 @@ else if (mon[input])
 }
 system("pause");
 */
-	{
-		bool flag = true;
-		int numPos = 35, numNeg = -55;
-		char frstChar = 'J', scndChar = 'O';
-		double frstPrice = 5.60;
+	//{  
+	//Answer 8; Problem 8
+	//	bool flag = true;
+	//	int numPos = 35, numNeg = -55;
+	//	char frstChar = 'J', scndChar = 'O';
+	//	double frstPrice = 5.60;
+	//}
+	/*
+	a. False
+	b. True
+	c.True
+	d.True
+	e.True
+	f.False
+	g.False
+	h.True
+	i.True
+	j.False
+	*/
+/*	
+	//Answer 9; Problem 9
+bool A = True;
+bool B = False;
+a:	(A || B) || (A && B)
+		T			F
+b:	!((!A) && (A)) || (A&&B);
+		F					T
+c:	!((5 || A) || (!B)) && (!(A&&B);
+		T					T
+d:	A || B && A;
+		T		F
+e:	!A && B;
+		F		F
 
+*/
 		system("pause");
-	}
+	
 
 }
