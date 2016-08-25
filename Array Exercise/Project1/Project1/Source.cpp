@@ -61,10 +61,10 @@ int main()
 	{
 		std::cin >> arr[i];
 	}
-	if (arr[i] > arr[i])
-
+	if (arr[i] )
+	
 	//Problem 6
-		int Arr[3][3];
+		//int Arr[3][3];
 
 
 
