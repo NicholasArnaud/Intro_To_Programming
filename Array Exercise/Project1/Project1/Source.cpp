@@ -55,18 +55,44 @@ int main()
 	*/
 
 	//Problem 5
-	int arr[10];
-	int i;
-	for (i=9; i >= 0; i--)
+	
 	{
-		std::cin >> arr[i];
+		int mn, mx;
+		const int Num = 10;
+		int a[Num];
+		std:: cout << "Enter 10 values:";
+		for (int i = 0; i<10; i++)
+		{
+		std:: cout << "\nEnter value: ";
+			std:: cin >> a[i]; 
+		}
+
+		mn = a[0];
+		mx = a[0];
+		for (int i = 1; i<10; i++)
+		{
+			if (mn>a[i])
+			{
+				mn = a[i];
+			}
+			else if (mx<a[i])
+			{
+				mx = a[i];
+			}
+		}
+
+		std::cout << "Maximum number is: " << mx <<std:: endl;
+		std::cout << "Minimum number is: " << mn <<std:: endl;
+
 	}
-	if (arr[i] > arr[i])
-
 	//Problem 6
-		int Arr[3][3];
+	/*	int GenerateGrid[3][3];
 
-
+		void GenerateGrid(int rows, int cols)
+			int[rows][cols];
+		for (int y = 0, y < rows; y++)
+			for  (int x = 0;x<cols;x++)
+*/
 
 
 
