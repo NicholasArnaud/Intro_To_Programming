@@ -57,7 +57,6 @@ int main()
 	//Problem 5
 	
 	{
-<<<<<<< HEAD
 		int mn, mx;
 		const int Num = 10;
 		int a[Num];
@@ -81,19 +80,13 @@ int main()
 				mx = a[i];
 			}
 		}
-=======
-		std::cin >> arr[i];
-	}
-	if (arr[i] )
-	
-	//Problem 6
-		//int Arr[3][3];
->>>>>>> origin/master
-
 		std::cout << "Maximum number is: " << mx <<std:: endl;
 		std::cout << "Minimum number is: " << mn <<std:: endl;
+}
+	//Problem 6
+		//int Arr[3][3];
 
-	}
+	
 	//Problem 6
 	/*	int GenerateGrid[3][3];
 
