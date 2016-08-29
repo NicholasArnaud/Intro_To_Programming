@@ -149,10 +149,37 @@ attacked. Your program should simulate 5 attacks. After the attacks have finishe
 the parties’ remaining health to the console.
 CHALLENGE: Research random number generation and modify your program so that random
 damage is dealt with each attack.
-
-	int Players[5];
-		int Health;
-		*/
+	*/
+	int Players[5]{ 100,100,100,100,100 };
+		int Damage = 40;
+		int i;
+		std::cin >> i;
+		Players[i];
+		if (i = 0) 
+		{
+			std::cout << Players[i] - Damage;
+		}
+		else if (i = 1)
+		{
+			Players[i] - Damage;
+			std::cout << Players[1] << std::endl;
+		}
+		else if (i = 2)
+		{
+			Players[2] - Damage;
+			std::cout << Players[2] << std::endl;
+		}
+		else if (i = 3)
+		{
+			Players[i] - Damage; 
+			std::cout << Players[3] << std::endl;
+		}
+		else if (i = 4)
+		{
+			Players[i] - Damage;
+			std::cout << Players[4] << std::endl;
+		}
+		
 
 //Problem 9
 /*
