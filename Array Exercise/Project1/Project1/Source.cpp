@@ -152,35 +152,42 @@ damage is dealt with each attack.
 	*/
 	int Players[5]{ 100,100,100,100,100 };
 		int Damage = 40;
-		int i;
-		std::cin >> i;
-		Players[i];
-		if (i = 0) 
+		int P;
+		Players[P];
+		for (int i =0 ; i <= 5; i++)
 		{
-			std::cout << Players[i] - Damage;
-		}
-		else if (i = 1)
-		{
-			Players[i] - Damage;
+			std::cin >> P;
+			if (P == 1)
+			{
+				bool(Players[1] >= 0);
+				Players[1] = std::abs(Players[1] - Damage);
+			}
+			else if (P == 2)
+			{
+				bool(Players[2] >= 0);
+				Players[2]=std::abs(Players[2] - Damage);
+			}
+			else if (P == 3)
+			{
+				bool(Players[3] >= 0);
+				Players[3] = std::abs(Players[3] - Damage);
+			}
+			else if (P == 4)
+			{
+				bool(Players[4] >= 0);
+				Players[4] = std::abs(Players[4] - Damage);
+			}
+			else
+			{
+				bool(Players[0] >= 0);
+				Players[0] = std::abs(Players[0] - Damage);
+			}
+			std::cout << Players[0] << std::endl;
 			std::cout << Players[1] << std::endl;
-		}
-		else if (i = 2)
-		{
-			Players[2] - Damage;
 			std::cout << Players[2] << std::endl;
-		}
-		else if (i = 3)
-		{
-			Players[i] - Damage; 
 			std::cout << Players[3] << std::endl;
-		}
-		else if (i = 4)
-		{
-			Players[i] - Damage;
 			std::cout << Players[4] << std::endl;
 		}
-		
-
 //Problem 9
 /*
 		Daenerys Targaryen wants to keep track of how many kilos of food her three dragons eat
