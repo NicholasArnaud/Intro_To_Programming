@@ -155,7 +155,8 @@ int square(int x) //change "int square(int x)" to "float square(int x)
 /*
 Write a function called SumTo that accepts an integer parameter N and returns the sum of
 all integers from 1 to N, including N.
-Use this code to test the function:#include <iostream>
+Use this code to test the function:
+#include <iostream>
 //Your function called SumTo goes here
 int main()
 {
@@ -185,14 +186,16 @@ std::cout << result << std::endl;
 /*
 Write a function that takes as its parameter an array of integers and the size of the array
 and returns the minimum of the values in the array.
-Use this code to test the function:#include <iostream>
+Use this code to test the function:
+#include <iostream>
 //Your function called MinInArray goes here
 int main()
 {
 int integer_array[7] = {10, 15, 7, 4, 13, 19, 8};
 int result = MinInArray(integer_array, 7); //result = 4
 std::cout << result << std::endl;
-}
+}
+
 */
 
 //Problem 10
@@ -201,7 +204,8 @@ Write a function that takes as its parameter an array called input_array of inte
 array size and a second array of the same size called output_array. Fill each element in the
 second array to be the value in the same index of input_array multiplied by its index in the
 array.
-Use this code to test your function:#include <iostream>
+Use this code to test your function:
+#include <iostream>
 //Your function called MultiplyByIndex goes here
 int main()
 {
@@ -218,7 +222,8 @@ return 0;
 Write a function that takes as its parameters two input arrays of integers , an integer for
 their size and an output array. Set the value at each index to the sum of the corresponding
 two elements of the input arrays at the same index. Assume the three arrays are of equal
-length. Write your own code for testing this function.
+length. Write your own code for testing this function.
+
 */
 
 //Problem 12
@@ -267,7 +272,8 @@ If the array was {1, 2, 2, 2, 3, 4} the function would print out “1,1,3,2,1,3,1,
 is “one 1, three 2s, one 3, one 4”.
 If the array is {1,2,2,1,5,1,1,7,7,7,7,1,1,1,1,1,1,1,1} the function should print out
 “1,1,2,2,1,1,1,5,2,1,4,7,8,1”
-Write your own code to test the function.
+Write your own code to test the function.
+
 */
 
 //Problem 17

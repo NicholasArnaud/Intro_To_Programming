@@ -150,7 +150,7 @@ the parties’ remaining health to the console.
 CHALLENGE: Research random number generation and modify your program so that random
 damage is dealt with each attack.
 	*/
-	int Players[5]{ 100,100,100,100,100 };
+/*int Players[5]{ 100,100,100,100,100 };
 		int Damage = 40;
 		int P;
 		Players[P];
@@ -187,7 +187,7 @@ damage is dealt with each attack.
 			std::cout << Players[2] << std::endl;
 			std::cout << Players[3] << std::endl;
 			std::cout << Players[4] << std::endl;
-		}
+		}*/
 //Problem 9
 /*
 		Daenerys Targaryen wants to keep track of how many kilos of food her three dragons eat
@@ -200,6 +200,21 @@ damage is dealt with each attack.
 		- the greatest amount of food eaten during one day and which dragon that was
 		- the least amount of food eaten during one day and which dragon that was
 		*/
+int dragFood[3][7];
+int realFood[3][7];
+int F1;
+int F2;
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 7; j++)
+		{
+			std::cin >> F1;
+			dragFood[i][j] = F1;
+			std::cout << dragFood[i][j];
+		}
+	}
+
 
 std::cout << std::endl;
 system("pause");
