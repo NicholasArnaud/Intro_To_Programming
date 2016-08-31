@@ -101,7 +101,7 @@ int days[29][5];
 Write code that sums each row in the array and displays the results.
 Write code that sums each column in the array and displays the results.
 */
-/* //Answer
+ //Answer
 int Days[29][5], colTotal[29] = { 0 }, rowTotal[5] = { 0 };
 int x, y;
 std::cout << "All array inputs for each is 5" << std::endl;
@@ -137,7 +137,7 @@ for (y = 0; y < 5; y++)
 {
 	std::cout << "sum of col is " << rowTotal[y] << std::endl;
 }
-*/
+
 
 //Problem 8
 /*
@@ -200,20 +200,96 @@ damage is dealt with each attack.
 		- the greatest amount of food eaten during one day and which dragon that was
 		- the least amount of food eaten during one day and which dragon that was
 		*/
-int dragFood[3][7];
-int realFood[3][7];
-int F1;
-int F2;
+#pragma region Variables
+	//Average amount of food eaten per day by all the dragons together
+	float avgPerDayTotal;
+	//- average amount of food eaten per day by any one dragon
+	float avgPerDayDonray;
+	float avgPerDaySalty;
+	float avgPerDayBob;
+	//- the greatest amount of food eaten during one day and which dragon that was
+	int mostFoodEaten;
+	int mostFoodEatenID;
+	//- the least amount of food eaten during one day and which dragon t
+	int leastFoodEaten;
+	int leastFoodEatenID;
+	//avg is sum of all numbers / how many numbers you added / summed
+	float sum = 0;
 
+	float totalDays = 21;
+	//make an array with just donrays foods
+	int donraysFoods[7]; //dragons[0][0-6]
+	int saltysFoods[7]; //dragons[1][0-6]
+	int bobFoods[7]; //dragons[2][0-6]
+	float donraySum = 0;
+	float saltySum = 0;
+	float bobSum = 0;
+	int dragons
+#pragma endregion Variables;
+void Array9()
+{
+	int dragons[3][7] = 
+		{ 25, 23, 23, 21, 15, 5, 1 }, //donray
+		{ 33, 12,  5,  5, 10, 25,25 }, //salty
+		{ 1 ,  1, 5,  1,  1,  1, 1 }, //bob
+	};
+	for (int i = 0; i < 3; i++)
+	{
+		if (i > 0)
+			std::cout << std::endl;
+		for (int j = 0; j < 7; j++)
+		{
+			std::cout << dragons[i][j] << " | ";
+		}
+
+	}
+
+	int leastPair[2] = { 0,0 };
+	int biggestPair[2] = { 0,0 };
+
+	//sum for all dragons
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 7; j++)
 		{
-			std::cin >> F1;
-			dragFood[i][j] = F1;
-			std::cout << dragFood[i][j];
+
+			if (dragons[i][j] > mostFoodEaten)
+			{
+				mostFoodEatenID = i;
+				mostFoodEaten = dragons[i][j];
+				biggestPair[0] = mostFoodEatenID;
+				biggestPair[1] = mostFoodEaten;
+			}
+			sum += dragons[i][j];
+
 		}
 	}
+	//array dump for the dragons from 2d to 1d
+	for (int i = 0; i < 7; i++)
+	{
+		donraysFoods[i] = dragons[0][i];
+		saltysFoods[i] = dragons[1][i];
+		bobFoods[i] = dragons[2][i];
+	}
+	//sum for individual dragons
+	for (int i = 0; i < 7; i++)
+	{
+		donraySum += donraysFoods[i];
+		saltySum += saltysFoods[i];
+		bobSum += bobFoods[i];
+	}
+	//avg calculations
+	avgPerDayDonray = donraySum / 7;
+	avgPerDaySalty = saltySum / 7;
+	avgPerDayBob = bobSum / 7;
+	avgPerDayTotal = sum / totalDays;
+	//output stuff to user
+	std::cout << "sum: is " << sum << std::endl;
+	std::cout << "average per day total  is " << avgPerDayTotal << std::endl;
+	std::cout << "donray the depressed dragon (''')('.:.')(''') @ ('')(':')('')\n average eaten per day is" << avgPerDayDonray << std::endl;
+	std::cout << "salty average eaten per day is " << avgPerDaySalty << "\n";
+	std::cout << "bob average eaten per day is " << avgPerDayBob << "\n";
+	system("pause");
 
 
 std::cout << std::endl;

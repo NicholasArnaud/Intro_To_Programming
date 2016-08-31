@@ -65,18 +65,19 @@ int main()
 		system("pause");
 
 	//Answer 5; Problem 5
-	
+		
 	int x;
 	std::cin >> x;
 	int y = (x == 0) ? 0 : 10 / x;
 	system("pause");
-	*/
+*/
 
 	//Answer 6; Problem 6
-	/*
-	int a;
-	int b;
+
+	float a;
+	float b;
 	char doom;
+	std::cout << "Enter a simple math problem";
 	std::cin >> a >> doom >> b;
 	switch (doom)
 	{
@@ -98,8 +99,9 @@ int main()
 		break;
 		
 	}
-	system("pause");
-	*/
+	std::cout << "\n";
+
+	
 	//Answer 7; Problem 7
 /*
 std::cout << "Please enter 0-11 for months";
