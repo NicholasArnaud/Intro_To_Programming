@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+#include <namedpipeapi.h>
 float Half(float);
 float wordNow();
 int Rand = 0;
@@ -235,6 +236,14 @@ your function that array would instead contain {3,5,9,16}, and if you ran it ano
 passing the modified array in again, you'd have {3,8,17,33}. Write your own code for testing
 this function.
 */
+int numbers[4]{ 3,2,4,7 };
+int func(int num[], int size);
+int suma = 0;
+for (int i = 0; i < size; i++)
+{
+	suma += num[i];
+	num[i] = suma;
+}
 
 //Problem 13
 /*
@@ -304,6 +313,10 @@ int main()
 	result = SumTo(15); //result should now be 120
 	std::cout << result << std::endl;
 
+	
+		func(numbers, 4);
+		for (int i = 0; i < 4; i++)
+			std::cout << numbers[i];
 
 
 	float stuff = wordNow();
