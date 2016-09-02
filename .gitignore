@@ -301,4 +301,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+<<<<<<< HEAD
 Project1/Source1.cpp
+=======
+Exercise-Conditional Statements/Source.cpp
+>>>>>>> origin/master

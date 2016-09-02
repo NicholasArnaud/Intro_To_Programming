@@ -19,14 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{06067E1C-5F3B-4734-9427-90A2500D4DE3}</ProjectGuid>
+    <ProjectGuid>{282038FA-5EDA-421B-84F2-08606730FBAA}</ProjectGuid>
     <RootNamespace>Project1</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-<<<<<<< HEAD
-    <ProjectName>Exercise-Variables</ProjectName>
-=======
-    <ProjectName>Exercise-Varaibles</ProjectName>
->>>>>>> origin/master
+    <ProjectName>Array Exercise</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
