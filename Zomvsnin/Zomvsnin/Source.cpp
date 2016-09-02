@@ -112,7 +112,7 @@ int main()
 			{
 				std::cout << "----------------------------------------------------------- \n\n\n\n\n";
 				printf("Ninjas have won. \n \n GOOD JOB NINJAS! \n \n");
-				printf("Zambies are no more!");
+				printf("Zambies are no more!\n \n");
 				break;
 
 			}
