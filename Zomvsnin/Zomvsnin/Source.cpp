@@ -11,7 +11,7 @@ struct Ninja
 	bool alive;
 	int chi;
 };
-int FightN(Zambie &attacker, Ninja &defender)
+int Fight(Zambie &attacker, Ninja &defender)
 {
 	std::cout << "Zambie is attacking Ninja \n \n" << std::endl;
 	defender.health -= 10;
@@ -20,7 +20,7 @@ int FightN(Zambie &attacker, Ninja &defender)
 	std::cout << "The Zambie attacked so his Spirit is now |" << attacker.spirit << "|" << "\n \n " << std::endl;
 	return 1;
 }
-int FightZ(Ninja &attacker, Zambie &defender)
+int Fight(Ninja &attacker, Zambie &defender)
 {
 	std::cout << "Ninja is attacking Zambie \n \n" << std::endl;
 	defender.health -= 10;
@@ -48,10 +48,12 @@ int main()
 		std::cin >> input;
 		std::cout << "Your input was:|" << input << "|\n\n";
 #pragma region Attacks
+
+
 		if (input == 'a'&& Chris.alive == true && Regi.alive == true)
 		{
 			std::cout << "CHRIS FIGHTS REGI" << std::endl;
-			FightN(Chris, Regi);
+			Fight(Chris, Regi);
 		}
 
 
@@ -65,7 +67,7 @@ int main()
 		if (input == 's' && Regi.alive == true && Chris.alive == true)
 		{
 			std::cout << "REGI FIGHTS CHRIS" << std::endl;
-			FightZ(Regi, Chris);
+			Fight(Regi, Chris);
 
 		}
 
@@ -82,7 +84,7 @@ int main()
 		if (input == 'd' && Matthew.alive == true && Wilson.alive == true)
 		{
 			std::cout << "MATTHEW FIGHTS WILSON" << std::endl;
-			FightN(Matthew, Wilson);
+			Fight(Matthew, Wilson);
 
 		}
 
@@ -97,7 +99,7 @@ int main()
 		if (input == 'f' && Wilson.alive == true && Matthew.alive == true)
 		{
 			std::cout << "WILSON FIGHTS MATTHEW" << std::endl;
-			FightZ(Wilson, Matthew);
+			Fight(Wilson, Matthew);
 
 		}
 
