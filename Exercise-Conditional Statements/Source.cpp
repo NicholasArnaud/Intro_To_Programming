@@ -74,8 +74,8 @@ int main()
 
 	//Answer 6; Problem 6
 
-	float a;
-	float b;
+	int a;
+	int b;
 	char doom;
 	std::cout << "Enter a simple math problem";
 	std::cin >> a >> doom >> b;
@@ -92,7 +92,7 @@ int main()
 		std::cout << a*b;
 		break;
 	case '/':
-		std::cout << a / b;
+		std::cout << a/ b;
 	case '%':
 		std::cout << a%b;
 	default:

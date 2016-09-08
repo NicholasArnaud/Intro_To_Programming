@@ -21,142 +21,6 @@ int main()
 		system("pause");
 	}
 
-	std::cin >> input;
-	// rock paper scissors
-	if (input == 'a'&& input != 'q')
-	{
-		do {
-
-
-			std::string playerPick;
-
-			int computer = 0;
-			int srand = 0;
-
-			std::cout << "rock, paper, or scissors?" << std::endl;
-			std::cout << " " << std::endl;
-
-			std::cin >> playerPick;
-
-			std::cout << "You entered: " << playerPick << std::endl;
-			std::cout << " " << std::endl;
-
-			srand = (rand() + time(0)) % 6;
-
-			computer = rand() % 10 + 1;
-
-			if (computer <= 3)
-			{
-
-				std::cout << "Computer chooses: Rock" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-
-			else if (computer <= 6)
-			{
-
-				std::cout << "Computer chooses Paper" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			else if (computer >= 7)
-			{
-
-				std::cout << "Computer chooses: Scissors" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-
-			if (playerPick == "rock" && computer <= 3)
-			{
-
-				std::cout << "It's a tie!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			else if (playerPick == "rock" && computer <= 6)
-			{
-
-				std::cout << "You lose!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			else if (playerPick == "rock" && computer >= 7)
-			{
-
-				std::cout << "You win!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			if (playerPick == "paper" && computer <= 3)
-			{
-
-				std::cout << "You win!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			else if (playerPick == "paper" && computer <= 6)
-			{
-
-				std::cout << "It's a tie!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			else if (playerPick == "paper" && computer >= 7)
-			{
-
-				std::cout << "You lose!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			if (playerPick == "scissors" && computer <= 3)
-			{
-
-				std::cout << "You lose!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			else if (playerPick == "scissors" && computer <= 6)
-			{
-
-				std::cout << "You win!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			else if (playerPick == "scissors" && computer >= 7)
-			{
-
-				std::cout << "It's a tie!" << std::endl;
-				std::cout << " " << std::endl;
-
-			}
-			if (input == 'm')
-				break;
-		} while (std::cin.get());
-		std::cin.get();
-		return 1;
-	}
-
-	// Coin Flip
-	if (input == 'b' && input != 'q')
-	{
-
-		for (int i = 0; i < rand(); i++)
-		{
-			int whatEver = rand();
-			if (whatEver % 2 == 0)
-			{
-				std::cout << "Tails" << std::endl;
-			}
-
-			else
-			{
-				std::cout << "Heads" << std::endl;
-			}
-		}
-		return 1;
-	}
 
 
 	// dice roll
@@ -192,76 +56,76 @@ int main()
 
 
 	// Tic-Tac-Toe
-	//void showBoard();
-	//void player_turn();
-	//bool gameover();
+	void showBoard();
+	void player_turn();
+	bool gameover();
 
-	//char turn;
-	//bool draw = false;
-	//char board[3][3] = { { '1', '2', '3' },{ '4', '5', '6' },{ '7', '8', '9' } };
+	char turn;
+	bool draw = false;
+	char board[3][3] = { { '1', '2', '3' },{ '4', '5', '6' },{ '7', '8', '9' } };
 
-	//int main()
-	//{
-	//	std::cout << "Tic Tac Toe Game\n";
-	//	std::cout << "Player 1 [X] --- Player 2 [O]\n";
-	//	turn = 'X';
+	int main()
+	{
+		std::cout << "Tic Tac Toe Game\n";
+		std::cout << "Player 1 [X] --- Player 2 [O]\n";
+		turn = 'X';
 
-	//	while (!gameover())
-	//	{
-	//		showBoard();
-	//		player_turn();
-	//		gameover();
-	//	}
+		while (!gameover())
+		{
+			showBoard();
+			player_turn();
+			gameover();
+		}
 
-	//	if (turn == 'O' && !draw)
-	//	{
-	//		showBoard();
-	//		std::cout << std::endl << std::endl << "Player 1 [X] Wins! Game Over!\n";
-	//	}
-	//	else if (turn == 'X' && !draw)
-	//	{
-	//		showBoard();
-	//		std::cout << std::endl << std::endl << "Player 2 [O] Wins! Game Over!\n";
-	//	}
-	//	else
-	//	{
-	//		showBoard();
-	//		std::cout << std::endl << std::endl << "It's a draw! Game Over!\n";
-	//	}
-	//	system("pause");
-	//}
+		if (turn == 'O' && !draw)
+		{
+			showBoard();
+			std::cout << std::endl << std::endl << "Player 1 [X] Wins! Game Over!\n";
+		}
+		else if (turn == 'X' && !draw)
+		{
+			showBoard();
+			std::cout << std::endl << std::endl << "Player 2 [O] Wins! Game Over!\n";
+		}
+		else
+		{
+			showBoard();
+			std::cout << std::endl << std::endl << "It's a draw! Game Over!\n";
+		}
+		system("pause");
+	}
 
-	//void showBoard()
-	//{
-	//	std::cout << "---------------------" << std::endl << std::endl;
-	//	std::cout << "     |     |     " << std::endl;
-	//	std::cout << "  " << board[0][0] << "  |  " << board[0][1] << "  |  " << board[0][2] << std::endl;
-	//	std::cout << "_____|_____|_____" << std::endl;
-	//	std::cout << "     |     |     " << std::endl;
-	//	std::cout << "  " << board[1][0] << "  |  " << board[1][1] << "  |  " << board[1][2] << std::endl;
-	//	std::cout << "_____|_____|_____" << std::endl;
-	//	std::cout << "     |     |     " << std::endl;
-	//	std::cout << "  " << board[2][0] << "  |  " << board[2][1] << "  |  " << board[2][2] << std::endl;
-	//	std::cout << "     |     |     " << std::endl;
-	//}
+	void showBoard()
+	{
+		std::cout << "---------------------" << std::endl << std::endl;
+		std::cout << "     |     |     " << std::endl;
+		std::cout << "  " << board[0][0] << "  |  " << board[0][1] << "  |  " << board[0][2] << std::endl;
+		std::cout << "_____|_____|_____" << std::endl;
+		std::cout << "     |     |     " << std::endl;
+		std::cout << "  " << board[1][0] << "  |  " << board[1][1] << "  |  " << board[1][2] << std::endl;
+		std::cout << "_____|_____|_____" << std::endl;
+		std::cout << "     |     |     " << std::endl;
+		std::cout << "  " << board[2][0] << "  |  " << board[2][1] << "  |  " << board[2][2] << std::endl;
+		std::cout << "     |     |     " << std::endl;
+	}
 
-	//void player_turn()
-	//{
-	//	int choice;
-	//	int row = 0, column = 0;
+	void player_turn()
+	{
+		int choice;
+		int row = 0, column = 0;
 
-	//	if (turn == 'X')
-	//	{
-	//		std::cout << "Player 1 turn [X]: ";
-	//		std::cin >> choice;
-	//	}
-	//	else if (turn == 'O')
-	//	{
-	//		std::cout << "Player 2 turn [O]: ";
-	//		srand(time(NULL));
-	//		choice = rand() % 9 + 1;
-	//		srand(1);
-	//	}
+		if (turn == 'X')
+		{
+			std::cout << "Player 1 turn [X]: ";
+			std::cin >> choice;
+		}
+		else if (turn == 'O')
+		{
+			std::cout << "Player 2 turn [O]: ";
+			srand(time(NULL));
+			choice = rand() % 9 + 1;
+			srand(1);
+		}
 
 
 	//	switch (choice)
