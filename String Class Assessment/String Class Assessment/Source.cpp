@@ -1,34 +1,13 @@
 #include <iostream>
-#include <string>
 #include "FunString.h"
 
-
-int Utility::Utilitybigguy()
+int FunString::Total()
 {
-	bool smallguy = true;
-	char flocka[] = "warfstache";
-	int i = 0;
-	flocka[i];
-	strlen(flocka);
-	while (smallguy = true)
+	FunString FunString[900];
+	for (int i; FunString[i]<"\0" ; i++)
 	{
-		if (flocka[i] == 0)
-		{
-			break;
-		}
-		i++;
+
+		
 	}
-	std::cout <<"Lenght of array is"<< i<< "\n";
-	return 0;
-}
-
-
-
-int main()
-{
-	Utility newUtil;
-	newUtil.Utilitybigguy();
-
-	system("pause");
-	return 1;	
+	return i;
 }

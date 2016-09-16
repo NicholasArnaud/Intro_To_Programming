@@ -1,13 +1,14 @@
 #pragma once
 
 
-class Utility
+class FunString
 {
-	char flocka[99];
-	char blocka[100];
+	char*stringWord;
+
 public:
-	Utility() {};
-	Utility(char*);
-	int Utilitybigguy();
+	FunString(); //basic tool to call functions
+	FunString(char*String); //Will save the string to private to prevent permanant change
+	
+	int Total(); //Will find the length of the string completely until reaches null
 
 };
