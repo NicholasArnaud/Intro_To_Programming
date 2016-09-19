@@ -1,13 +1,10 @@
 #include <iostream>
 #include "FunString.h"
 
-int FunString::Total()
+int FunString:: Total()
 {
-	FunString FunString[900];
-	for (int i; FunString[i]<"\0" ; i++)
-	{
-
-		
-	}
-	return i;
+std:: cout << FunString::stringWord;
+int i = 0;
+//for (; String[i] != 0; String++);
+return i;
 }

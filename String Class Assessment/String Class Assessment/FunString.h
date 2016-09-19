@@ -8,7 +8,7 @@ class FunString
 public:
 	FunString(); //basic tool to call functions
 	FunString(char*String); //Will save the string to private to prevent permanant change
-	
-	int Total(); //Will find the length of the string completely until reaches null
 
+	int Total(); //Will find the length of the string completely until reaches null
+	int indexedChar(); //Will pick a character in a string
 };

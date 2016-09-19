@@ -3,9 +3,7 @@
 
 int main()
 {
-	FunString::FunString("wow");
-
-
-
+	FunString::FunString();
+	FunString Total();
 	return 1;
 }
