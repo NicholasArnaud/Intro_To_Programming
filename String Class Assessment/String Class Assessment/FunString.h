@@ -13,6 +13,8 @@ public:
 	int indexedChar(); //Will pick a character in a string
 	bool Compared(); //Will compare 2 strings together 0.
 	void Append(); //Will add the second string after the first string
-	void Prepend();
-	char c_Style();
+	void Prepend(); //Will add the second string before the first string
+	char c_Style(); // Will write the string c-styled	
+	void upperCase(); //Will change string characters into uppercase characters
+	void lowerCase(); //Will change string characters into lowercase characters
 };

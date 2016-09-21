@@ -8,5 +8,9 @@ int main()
 	FunString. Total(); //Part 1 of Assessment
 	FunString.indexedChar(); //Part 2 of Assessment
 	FunString.Compared(); //Part 3 of Assessment
+	FunString.c_Style(); //Part 6 of Assessment
+	FunString.lowerCase(); //Part 7 of Assessment
+	FunString.upperCase(); //Part 8 of Assessment
+	
 	return 1;
 }

@@ -40,5 +40,32 @@ void FunString::Prepend()
 }
 char FunString::c_Style()
 {
-
+	int i = 0;
+	for (; m_String[i] != 0; i++);
+		char Array['i'];
+		Array[i] = m_String['i'];
+std:: cout << Array << "\n"; //currently not fully operational
+	return i;
+}
+void FunString::upperCase()
+{
+	char n;
+	int l = 0;
+	while (m_String[l])
+	{
+		l = m_String[l];
+		putchar(toupper(n));
+		l++;
+	}
+}
+void FunString::lowerCase()
+{
+	char o;
+	int k = 0;
+	while (m_String[k])
+	{
+		k = m_String[k];
+		putchar(tolower(o));
+		k++;
+	}
 }
