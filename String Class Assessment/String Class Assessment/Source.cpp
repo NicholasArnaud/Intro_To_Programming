@@ -56,11 +56,42 @@ void FunString::upperCase()
 {
 
 }
+void FunString::subStrLoc()
+{
+	int i, j, temp;	//used to get index given string and arrays
+	char substr[20] = { "ow" }; //sets the substring
+	std::cout << "Looking for the substring : " << substr<< "\n"; //shows what the substring is to the user
+	for (i = 0; m_String[i] != '\0'; i++) //for loop to search string for the substring
+	{
+		j = 0; //used to index the substring
+		if (m_String[i] == substr[j]) //if indeed the string contains the substring
+		{
+			temp = i + 1; //saves at what index the substring is located 
+			while (m_String[i] == substr[j]) //continues as long as both strings dont equal to the null character
+			{
+				i++;
+				j++;	
+			}
+
+			if (substr[j] == '\0') //if the substring is found in the string
+			{
+				std:: cout << "The substring is present in given string at position " << temp << "\n"; //displays location of substring found
+			}
+			else //if the subtring is not found
+			{
+				i = temp;
+				temp = 0; //causes break loop
+			}
+		}
+	}
+
+	if (temp == 0) //breaks the loop 
+		std:: cout << "The substring is not present in given string";
+}
 void FunString::c_inStyle()
 {
-	for (int index = 0; index < sizeof(m_String); ++index)
+	for (int index = 0; index < Strlen; ++index) //measures the length of the string to set index 
 	{
-std::cout << static_cast<int>(m_String [index]) << "\n";
-	}
-		
+static_cast<int>(m_String [index]); //casts a C-styled string as a constant character string
+	}		
 }

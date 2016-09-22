@@ -11,6 +11,7 @@ int main()
 	FunString.c_Style(); //Part 6 of Assessment
 	//FunString.lowerCase(); //Part 7 of Assessment
 	//FunString.upperCase(); //Part 8 of Assessment
+	FunString.subStrLoc(); //Part 9 of Assessment
 	FunString.c_inStyle(); //Part 12 of Assessment
 	
 	system("pause");
