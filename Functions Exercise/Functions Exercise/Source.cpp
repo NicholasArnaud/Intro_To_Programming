@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
-#include <namedpipeapi.h>
+#include <string>
 float Half(float);
 float wordNow();
 int Rand = 0;
@@ -37,10 +37,8 @@ int main()
 	Printer(Three);
 	system("pause");
 	return 0;
-	*/
 	//outputs: 1122321
-
-
+	*/
 
 //Problem 2
 /*
@@ -75,7 +73,43 @@ std::cout << std::endl;
 Add another function with the same name as the one you wrote in question 2, but with
 three floats instead of two. What is this language feature called?
 */
+float wordsNow()
+{
+	float value1;
+	float value2;
+	float value3;
+	std::cout << std::endl;
+	std::cin >> value1 >> value2 >> value3;
+	if (value1 > value2)
+	{
+		if (value2 > value3)
+		{
+		std::cout << "The smaller number is:" << value3;
+		
+		}
+		else if (value2 < value3)
+		{
+			std::cout << "The smaller number is:" << value2;
+			std::cout << std::endl;
+		}
+		
+	}
 
+	else if (value1 < value2)
+	{
+		if (value1 < value3)
+		{
+		std::cout << "The smaller number is:" << value1;
+		std::cout << std::endl;
+		}
+		else if (value1 > value3)
+		{
+			std::cout << "The smaller number is:" << value3;
+			std::cout << std::endl;
+		}
+	}
+	return value1;
+}
 
 
 //Problem 4 
@@ -121,36 +155,36 @@ int CoinToss()
 /*
 Find the error in each of the following functions 
 and explain how to fix them.
-*/
-
-int sum(int x, int y) //needs ";"
-{
-	//"x,y" is not defined, can input here "x=1" & "y=2"
-	int result;
-	result = x + y;
-}
-
-int sum(int n) //needs ";"
-{
-	//"n" is not defined, can input here "int n=1"
-	if (0 == n)
-		return 0;
-	else
-		n = n + n;
-}
-
-int main()
-{
-	double x = 13.6;
-	//square is not defined, can use "float square()"
-	// "x" has too many arguments in function call 
-	std::cout << "square of 13.6 = " << square(x) << std::endl;
-}
-
-int square(int x) //change "int square(int x)" to "float square(int x)
-{
-	return x * x;
-}
+//*/
+//
+//int sum(int x, int y) //needs ";"
+//{
+//	//"x,y" is not defined, can input here "x=1" & "y=2"
+//	int result;
+//	result = x + y;
+//}
+//
+//int sum(int n) //needs ";"
+//{
+//	//"n" is not defined, can input here "int n=1"
+//	if (0 == n)
+//		return 0;
+//	else
+//		n = n + n;
+//}
+//
+//int main()
+//{
+//	double x = 13.6;
+//	//square is not defined, can use "float square()"
+//	// "x" has too many arguments in function call 
+//	std::cout << "square of 13.6 = " << square(x) << std::endl;
+//}
+//
+//int square(int x) //change "int square(int x)" to "float square(int x)
+//{
+//	return x * x;
+//}
 
 //Problem 7
 /*
@@ -167,7 +201,12 @@ result = SumTo(15); //result should now be 120
 std::cout << result << std::endl;
 }
 */
-
+int SumTo(int n)
+{
+	for (int i = 0; i <= n; i++);
+	int sumz = i;
+	return sumz+n;
+}
 
 
 
@@ -185,10 +224,21 @@ int result = SumArray(integer_array, 5); //result = 25
 std::cout << result << std::endl;
 }
 */
+int Array(int itArr[], int size)
+{
+	int added;
+	for (int l=0; l < size; l++)
+	{
+		int tem = itArr[l];
+		added=tem + itArr[l];
+	}
+
+	return added;
+}
 
 //Problem 9
 /*
-Write a function that takes as its parameter an array of integers and the size of the array
+Write a function that takes as its parameter, an array of integers and the size of the array
 and returns the minimum of the values in the array.
 Use this code to test the function:
 #include <iostream>
@@ -198,9 +248,14 @@ int main()
 int integer_array[7] = {10, 15, 7, 4, 13, 19, 8};
 int result = MinInArray(integer_array, 7); //result = 4
 std::cout << result << std::endl;
-}
+}*/
+int MinInArray(int small[], int size)
+{
 
-*/
+
+	int smallest = 0;
+	return  smallest;
+}
 
 //Problem 10
 /*
@@ -227,8 +282,10 @@ Write a function that takes as its parameters two input arrays of integers , an 
 their size and an output array. Set the value at each index to the sum of the corresponding
 two elements of the input arrays at the same index. Assume the three arrays are of equal
 length. Write your own code for testing this function.
-
 */
+
+
+
 
 //Problem 12
 /*
@@ -239,14 +296,15 @@ your function that array would instead contain {3,5,9,16}, and if you ran it ano
 passing the modified array in again, you'd have {3,8,17,33}. Write your own code for testing
 this function.
 */
+/*
 int numbers[4]{ 3,2,4,7 };
-int func(int num[], int size);
+int array_input(int num[], int size);
 int suma = 0;
 for (int i = 0; i < size; i++)
 {
 	suma += num[i];
 	num[i] = suma;
-}
+}*/
 
 //Problem 13
 /*
@@ -285,8 +343,9 @@ is “one 1, three 2s, one 3, one 4”.
 If the array is {1,2,2,1,5,1,1,7,7,7,7,1,1,1,1,1,1,1,1} the function should print out
 “1,1,2,2,1,1,1,5,2,1,4,7,8,1”
 Write your own code to test the function.
-
 */
+
+
 
 //Problem 17
 /*
@@ -304,7 +363,127 @@ scissors.
 5. Make sure to break the game up into functions to perform each task. Make sure to
 look for any code that is repeated, and break it out into a function.
 */
+int R_P_S()
+{
+	do {
 
+
+		std::string playerPick;
+
+		int computer = 0;
+		int srand = 0;
+
+		std::cout << "rock, paper, or scissors?" << std::endl;
+		std::cout << " " << std::endl;
+
+		std::cin >> playerPick;
+
+		std::cout << "You entered: " << playerPick << std::endl;
+		std::cout << " " << std::endl;
+
+		srand = (rand() + time(0)) % 6;
+
+		computer = rand() % 10 + 1;
+
+
+		if (playerPick == "q")
+		{
+			break;
+		}
+
+
+		if (computer <= 3)
+		{
+
+			std::cout << "Computer chooses: Rock" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+
+		else if (computer <= 6)
+		{
+
+			std::cout << "Computer chooses Paper" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		else if (computer >= 7)
+		{
+
+			std::cout << "Computer chooses: Scissors" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+
+		if (playerPick == "rock" && computer <= 3)
+		{
+
+			std::cout << "It's a tie!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		else if (playerPick == "rock" && computer <= 6)
+		{
+
+			std::cout << "You lose!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		else if (playerPick == "rock" && computer >= 7)
+		{
+
+			std::cout << "You win!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		if (playerPick == "paper" && computer <= 3)
+		{
+
+			std::cout << "You win!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		else if (playerPick == "paper" && computer <= 6)
+		{
+
+			std::cout << "It's a tie!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		else if (playerPick == "paper" && computer >= 7)
+		{
+
+			std::cout << "You lose!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		if (playerPick == "scissors" && computer <= 3)
+		{
+
+			std::cout << "You lose!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		else if (playerPick == "scissors" && computer <= 6)
+		{
+
+			std::cout << "You win!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+		else if (playerPick == "scissors" && computer >= 7)
+		{
+
+			std::cout << "It's a tie!" << std::endl;
+			std::cout << " " << std::endl;
+
+		}
+
+
+	} while (std::cin.get());
+	std::cin.get();
+	return 1;
+}
 
 
 
@@ -317,15 +496,17 @@ int main()
 	std::cout << result << std::endl;
 
 	
-		func(numbers, 4);
+	/*	func(numbers, 4);
 		for (int i = 0; i < 4; i++)
 			std::cout << numbers[i];
+			*/
 
 
 	float stuff = wordNow();
 	float more = Half(16.721);
 	std::cin >> Rand;
 	CoinToss();
+	R_P_S();
 	std::cout << "\n";
 	system("pause");
 	return 0;
