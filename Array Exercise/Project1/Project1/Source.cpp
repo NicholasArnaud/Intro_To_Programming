@@ -289,12 +289,13 @@ void Array9()
 	//output stuff to user
 	std::cout << "sum: is " << sum << std::endl;
 	std::cout << "average per day total  is " << avgPerDayTotal << std::endl;
-	std::cout << "donray the depressed dragon (''')('.:.')(''') @ ('')(':')('')\n average eaten per day is" << avgPerDayDonray << std::endl;
+	std::cout << "donray the depressed dragon \n average eaten per day is" << avgPerDayDonray << std::endl;
 	std::cout << "salty average eaten per day is " << avgPerDaySalty << "\n";
 	std::cout << "bob average eaten per day is " << avgPerDayBob << "\n";
-	std::cout << "least food eaten dragon is " << leastPair[0] << "eated " << leastPair[1] << std::endl;
-	std::cout << " most food eaten dragon is " << biggestPair[0] << "eated " << biggestPair[1] << std::endl;
+	std::cout << "least food eaten dragon is " << leastPair[0] << " ate " << leastPair[1] << std::endl;
+	std::cout << " most food eaten dragon is " << biggestPair[0] << " ate " << biggestPair[1] << std::endl;
 
-	system("pause");
+
 }
-	
+		system("pause");
+		}
