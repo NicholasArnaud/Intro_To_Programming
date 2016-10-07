@@ -32,12 +32,15 @@ int main()
 		*/
 
 //Problem 3
-/*	//Answer
+//	Write a for loop to initialize the following array(int data[10]) with the values 10, 9, 8…(Etc)
+	//Answer
+	/*
 		int data[10];
-		for (int data = 10; data > 0; data--)
-		std::cout << data << std::endl;
+		for (int i = 9; i >= 0; i--)
+		{
+			data[i] = i + 1;
+		}
 		*/
-
 //Problem 4
 /*
 			Create a program that asks for 5 numbers from the user,
@@ -61,38 +64,55 @@ int main()
 
 //Problem 5
 /*
-					Write a program that lets the user enter 10 values into an array.
-					The program should then display the largest
-					and smallest values stored in the array.
-					*/
-/*int arr[10];
-								int i;
-								for (i=9; i >= 0; i--)
-								{
-									std::cin >> arr[i];
-								}
-								if (arr[i] )
-								*/
+Write a program that lets the user enter 10 values into an array.
+The program should then display the largest
+and smallest values stored in the array.
+*/
+	/*
+int arr[10];
+	for (int i=9; i >= 0; i--)
+	{
+	std::cin >> arr[i];
+	}
+
+	for (int j=0; j < 10; j++) 
+	{
+		for (int i = 10; i >= 0; i--)
+		{
+
+
+			if (arr[i] < arr[j])
+			{
+				int smallest = arr[i];
+			}
+			if (arr[i] > arr[j])
+			{
+				int biggest = arr[j];
+			}
+		}
+	}
+	*/
+								
 
 //Problem 6
 /*
-									Create a program that creates a small 3x3 array of integers.
-									Use a nested for loop to initialise the numbers 1-9.
-									Output the numbers in a grid format.
-								*/
+Create a program that creates a small 3x3 array of integers.
+Use a nested for loop to initialise the numbers 1-9.
+Output the numbers in a grid format.
+*/
 /* //Answer
-									int Arr[3][3];
-									int number = 1;
-									for (int numA=0; numA < 3;numA++)
-									{
-										std::cout <<std:: endl;
-										for (int numB = 0; numB < 3; numB++)
-										{
-										Arr[numA][numB] = number;
-										number++;
-										std::cout << Arr[numA][numB];
-										}
-									}
+int Arr[3][3];
+int number = 1;
+for (int numA=0; numA < 3;numA++)
+{
+std::cout <<std:: endl;
+for (int numB = 0; numB < 3; numB++)
+{
+Arr[numA][numB] = number;
+number++;
+std::cout << Arr[numA][numB];
+	}
+}
 								*/
 
 //Problem 7
@@ -193,16 +213,16 @@ int main()
 
 //Problem 9
 /*
-						Daenerys Targaryen wants to keep track of how many kilos of food her three dragons eat
-						each day during a typical week. Write a program that stores this information in a 2
-						dimensional 3 x 7 array, where each row represents a different dragon and each column
-						represents a different day of the week. The program should first have Dany input the user
-						for each dragon. Then it should create a report that includes the following information:
-						- Average amount of food eaten per day by all the dragons together
-						- average amount of food eaten per day by any one dragon
-						- the greatest amount of food eaten during one day and which dragon that was
-						- the least amount of food eaten during one day and which dragon that was
-						*/
+Daenerys Targaryen wants to keep track of how many kilos of food her three dragons eat
+each day during a typical week. Write a program that stores this information in a 2
+dimensional 3 x 7 array, where each row represents a different dragon and each column
+represents a different day of the week. The program should first have Dany input the user
+for each dragon. Then it should create a report that includes the following information:
+- Average amount of food eaten per day by all the dragons together
+- average amount of food eaten per day by any one dragon
+- the greatest amount of food eaten during one day and which dragon that was
+- the least amount of food eaten during one day and which dragon that was
+						
 void Array9()
 ; {
 	int dragons[3][7] = {
@@ -296,6 +316,6 @@ void Array9()
 	std::cout << " most food eaten dragon is " << biggestPair[0] << " ate " << biggestPair[1] << std::endl;
 
 
-}
+}*/
 		system("pause");
 		}
