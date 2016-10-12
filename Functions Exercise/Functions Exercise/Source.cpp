@@ -275,6 +275,13 @@ MultiplyByIndex(integer_array, output_array, 7);
 return 0;
 }
 */
+void MultiplyByIndex (int input_array[], int size, int output_array[])
+{
+	for (int i = 0; i < size; i++)
+	{
+		output_array[i] = i * input_array[i];
+	}
+}
 
 //Problem 11
 /*
@@ -283,7 +290,13 @@ their size and an output array. Set the value at each index to the sum of the co
 two elements of the input arrays at the same index. Assume the three arrays are of equal
 length. Write your own code for testing this function.
 */
-
+void Sumof2Arrays(int input_1[], int input_2[], int size, int output_Total[])
+{
+	for (int i = 0; i < size; i++)
+	{
+		output_Total[i] = input_1[i] + input_2[i];
+	}
+}
 
 
 
@@ -315,6 +328,21 @@ If the number isn’t found, the function should return -1. In the case that the d
 number appears more than once in the array, the function should return the position of
 the first occurrence. Write your own code to test this function.
 */
+int findIndex(int enter[], int size, int finder)
+{
+	for (int i; i < size; i++)
+	{
+		if (finder == enter[i])
+		{
+			return i;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+}
+
 
 //Problem 14
 /*
@@ -324,17 +352,42 @@ positive are copied into the first output array and all numbers in the input arr
 negative are copied into the second output array. The function should return how many
 numbers were copied into the first output array. Write your own code to test this function.
 */
+int Split(int arrayofInt[], int size, int output_1[], int output_2[])
+{
+	int j = 0;
+	int l = 0;
+	for (int i; i < size; i++)
+	{
+		if (arrayofInt[i] > 0)
+		{
+			output_1[j] = arrayofInt[i];
+			j++;
+		}
+		else if (arrayofInt[i] < 0)
+		{
+			output_2[l] = arrayofInt[i];
+			l++;
+		}
+	}
+	return j;
+}
 
 //Problem 15
 /*
 Write a function that calculates and then returns x to the power of y.
 */
 
+int powerof(int x, int y)
+{
+	return (x*x)*y;
+}
+
+
 //Problem 16
 /*
 Write a function that takes in an array of integers, and the size of the array. The function
 should print out the “look and say” sequence for the array. The look and say sequence
-works by printing out how many of the same number there are in a row followed by that
+works by printing out how many of the same numbers there are in a row followed by that
 number.
 For example, if the array was {1, 1, 1, 1} the function would print out “4, 1” because there
 are four ones.
@@ -344,7 +397,18 @@ If the array is {1,2,2,1,5,1,1,7,7,7,7,1,1,1,1,1,1,1,1} the function should prin
 “1,1,2,2,1,1,1,5,2,1,4,7,8,1”
 Write your own code to test the function.
 */
+void sequence(int thearray[], int size)
+{
+	for (int i; i < size; i++)
+	{
+		int j = 0;
+		if (thearray[i] == thearray[i + 1])
+		{
 
+			j++;
+		}
+	}
+}
 
 
 //Problem 17
@@ -500,7 +564,9 @@ int main()
 		for (int i = 0; i < 4; i++)
 			std::cout << numbers[i];
 			*/
-
+	int integer_array[7] = { 10, 15, 7, 4, 13, 19, 8 };
+	int output_array[7] = {};
+	MultiplyByIndex(integer_array, 7 ,output_array );
 
 	float stuff = wordNow();
 	float more = Half(16.721);
