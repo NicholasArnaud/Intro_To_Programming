@@ -40,6 +40,7 @@ int main()
 	//outputs: 1122321
 	*/
 
+
 //Problem 2
 /*
 Write a function that returns the smaller of two floats that are passed to it :
@@ -67,6 +68,7 @@ std::cout << std::endl;
 			return value1;
 		}
 	}
+
 
 //Problem 3 
 /*
@@ -121,6 +123,7 @@ float Half(float numb)
 {
 	return numb/2;
 }
+
 
 //Problem 5
 /*
@@ -186,6 +189,7 @@ and explain how to fix them.
 //	return x * x;
 //}
 
+
 //Problem 7
 /*
 Write a function called SumTo that accepts an integer parameter N and returns the sum of
@@ -207,7 +211,6 @@ int SumTo(int n)
 	int sumz = i;
 	return sumz+n;
 }
-
 
 
 //Problem 8
@@ -236,6 +239,7 @@ int Array(int itArr[], int size)
 	return added;
 }
 
+
 //Problem 9
 /*
 Write a function that takes as its parameter, an array of integers and the size of the array
@@ -251,11 +255,17 @@ std::cout << result << std::endl;
 }*/
 int MinInArray(int small[], int size)
 {
-
-
-	int smallest = 0;
+	int smallest = small[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (smallest > small[i])
+		{
+			smallest = small[i];
+		}
+	}
 	return  smallest;
 }
+
 
 //Problem 10
 /*
@@ -283,6 +293,7 @@ void MultiplyByIndex (int input_array[], int size, int output_array[])
 	}
 }
 
+
 //Problem 11
 /*
 Write a function that takes as its parameters two input arrays of integers , an integer for
@@ -299,7 +310,6 @@ void Sumof2Arrays(int input_1[], int input_2[], int size, int output_Total[])
 }
 
 
-
 //Problem 12
 /*
 Write a function that takes as its parameters an array called array_input of integers and the
@@ -309,15 +319,16 @@ your function that array would instead contain {3,5,9,16}, and if you ran it ano
 passing the modified array in again, you'd have {3,8,17,33}. Write your own code for testing
 this function.
 */
-/*
-int numbers[4]{ 3,2,4,7 };
-int array_input(int num[], int size);
-int suma = 0;
-for (int i = 0; i < size; i++)
+void array_Input(int array_input[], int size)
 {
-	suma += num[i];
-	num[i] = suma;
-}*/
+	int suma = 0;
+	for (int i = 0; i < size; i++)
+	{
+		suma += array_input[i];
+		array_input[i] = suma;
+	}
+}
+
 
 //Problem 13
 /*
@@ -372,11 +383,11 @@ int Split(int arrayofInt[], int size, int output_1[], int output_2[])
 	return j;
 }
 
+
 //Problem 15
 /*
 Write a function that calculates and then returns x to the power of y.
 */
-
 int powerof(int x, int y)
 {
 	return (x*x)*y;
@@ -559,7 +570,9 @@ int main()
 	result = SumTo(15); //result should now be 120
 	std::cout << result << std::endl;
 
-	
+	int numbers[4]{ 3,2,4,7 };
+	array_Input(numbers, 4);
+
 	/*	func(numbers, 4);
 		for (int i = 0; i < 4; i++)
 			std::cout << numbers[i];
@@ -567,6 +580,9 @@ int main()
 	int integer_array[7] = { 10, 15, 7, 4, 13, 19, 8 };
 	int output_array[7] = {};
 	MultiplyByIndex(integer_array, 7 ,output_array );
+
+	int part16[7] = { 1,3,1,2,2,6 };
+	sequence(part16, 7);
 
 	float stuff = wordNow();
 	float more = Half(16.721);
