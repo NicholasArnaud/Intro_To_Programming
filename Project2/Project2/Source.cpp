@@ -38,7 +38,12 @@ int main()
 	Bucket <int> a = Bucket <int>(20);
 	int number = 5;
 
-	Bucket<int>a;
+	Bucket<int>b;
 	a.Add(number);
 	return 1;
+}
+
+bool Item::operator==(const Item & theItem) const
+{
+	return false;
 }

@@ -15,6 +15,8 @@ public:
 	virtual void Update() = 0;
 	bool Gameover = false;
 };
+
+
 class RockPaperScissors : public Application
 {
 public:
