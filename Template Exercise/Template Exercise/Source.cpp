@@ -22,6 +22,7 @@ A Min(A a, A b)
 	{
 		return a;
 	}
+	
 }
 
 
@@ -34,7 +35,7 @@ OUTPUT: The higher of the two values a and b.
 template <typename A>
 A Max(A a, A b)
 {
-	return a > b;
+	return (a > b) ? a : b;
 }
 
 
@@ -66,8 +67,7 @@ the function will return the value that is alphabetically lower.
 INPUT: Two template arguments (a, b).
 OUTPUT: The alphabetically lower of the two values a and b
 */
-template <typename T>
-T Maxt(T a, T b)
+char Maxt(char a, char b)
 {
 	if (a < b)
 	{
@@ -91,8 +91,7 @@ the function will return the value that is alphabetically higher.
 INPUT: Two template arguments (a, b).
 OUTPUT: The alphabetically higher of the two values a and b.
 */
-template <typename T>
-T Mint(T a, T b)
+char Mint(char a, char b)
 {
 	if (a < b)
 	{
@@ -130,6 +129,14 @@ OUTPUT: N/A.
 	int index;
 public:
 	
+/*
+	Constructor
+DESCRIPTION: Creates an array on the heap of the specified capacity. The new heap
+memory should be zeroed using memset. You should store the value of
+capacity and size for later use (size should start at 0).
+INPUT: A single integer specifying the capacity for the data array.
+OUTPUT: N/A.
+*/
 	template <typename Template>
 	Arrays() 
 	{
@@ -198,8 +205,8 @@ int main()
 	Min<int>(12, 10);
 	Max <int>(15, 11);
 	Clamp<int>(0 ,0, 0);
-	Mint<char>('l', 'm');
-	Maxt<char>('j', 'z');
+	Min('l', 'm');
+	Max('j', 'z');
 	
 	return 1;
 }
