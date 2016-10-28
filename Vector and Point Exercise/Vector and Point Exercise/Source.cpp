@@ -10,11 +10,16 @@ b.A - B
 c.The magnitude of A and B
 d. - 2A + 3B
 */
-/*2. Normalise the following vectors
+
+
+/*
+2. Normalise the following vectors
 a. (3, 4)
 b. (6, 9)
 c. (25, 2)
-d. (11.52, 53.34)*/
+d. (11.52, 53.34)
+*/
+
 /*
 3. A ball at position (2, 1) is travelling at (1, -2) units per second. After 5 seconds, where will it be?
 */
