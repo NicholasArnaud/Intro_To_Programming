@@ -292,6 +292,11 @@ protected:
 	
 
 
+
+
+
+
+
 //Node Type
 template <typename Type>
 struct nodeType

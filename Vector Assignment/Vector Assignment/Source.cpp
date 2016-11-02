@@ -40,13 +40,15 @@
 // Ax Bz - Az Bx , y
 // Ax By - Ay Bx , z
 
-template<Type>
-void Print() {};
+//template<Type>
+//void Print() {};
 
 int main()
 {
 	Vector2D  A =  Vector2D(1, 0);
 	Vector2D  B =  Vector2D(0, 1);
+
+	
 
 
 	assert(A + B == Vector2D(1,1));
@@ -85,8 +87,8 @@ int main()
 	template<Type>
 	a.link = nullptr;
 
-	template<Type>
-	Print();
+	//template<Type>
+	//Print();
 
 
 	
@@ -94,12 +96,12 @@ int main()
 	return 1;
 }
 
-template<Type>
-Node Print()
-{
-	while (Head != nullptr)
-	{
-		std::cout << Head->info;
-		Head = Head->link;
-	}
-}
+//template<Type>
+//Node Print()
+//{
+//	while (Head != nullptr)
+//	{
+//		std::cout << Head->info;
+//		Head = Head->link;
+//	}
+//}
