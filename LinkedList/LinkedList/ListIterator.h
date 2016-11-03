@@ -250,14 +250,16 @@ public:
 	//Postcondition: current = node
 	linkedListIterator(nodeType<Type> *node)
 	{
-
+		current = node;
 	}
 
 	//Function to overlaod the dereferencing operator *
 	//Postcondition:Returns the info contained in the node
 	Type operator*()
 	{
-
+		if (current == NULL)
+			return NULL;
+		return current->info;
 	}
 
 	//Overload the pre-increment operator
@@ -265,6 +267,8 @@ public:
 	linkedListIterator<Type> operator++()
 	{
 
+		current = current->link;
+		return *this;
 	}
 
 	//Overlaod the equality operator
@@ -272,7 +276,11 @@ public:
 	//iterator specified by right otherwise returns false
 	bool operator == (linkedListIterator<Type>& list) const
 	{
-
+		if (list.current == current)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	//Overlaod the not equal operator
@@ -280,7 +288,11 @@ public:
 	//iterator specified by right otherwise returns false
 	bool operator != (linkedListIterator<Type>& list) const
 	{
-
+		if (list.current != current)
+		{
+			return true;
+		}
+		return false;
 	}
 };
 
@@ -297,21 +309,23 @@ public:
 	//Overload the assignment operator
 	const linkedListType<Type>& operator = (const linkedListType<Type>& otherList)
 	{
-
+		
 	}
 
 	//Initialize the list to an empty state
 	//Postcondition: first = NULL, last = NULL, count = 0;
 	void initializeList()
 	{
-
+		first = NULL;
+		last = NULL;
+		count = 0;
 	}
 
 	//Function to determine whether the list is empty
 	//Postcondition: Returns true if the list is empty otherwise it returns false
 	bool isEmptyList() const
 	{
-		if (Head == nullptr)
+		if (first== NULL)
 			return true;
 		return false;
 	}
@@ -320,23 +334,13 @@ public:
 	//Postcondition: Node
 	void print() const
 	{
-		while (Head != nullptr)
-		{
-			std::cout << Head->info;
-			Head = Head->link;
-		}
+		
 	}
 
 	//Function to return the number of nodes in the list
 	//Postcondition: The value of count is returned
 	int length() const
 	{
-		count = 0;
-		while (Head != nullptr)
-		{
-			Head = Head->link;
-			count++;
-		}
 		return count;
 	}
 
@@ -344,12 +348,14 @@ public:
 	//Postcondition: first = NULL, last = NULL, count = 0;
 	void destroyList()
 	{
-		for (int i = 0; i <= count; i++)
+		nodeType<Type> * rekt = first;
+		while (rekt != NULL)
 		{
-			Head = nullptr;
-			Head = Head->link;
+			nodeType<Type> * out = rekt;
+			rekt = rekt->link;
+			delete out;
 		}
-		count = 0;
+		initializeList();
 	}
 
 	//Function to return the first element in the list
@@ -358,7 +364,8 @@ public:
 	//the first element of the list is returned
 	Type front() const
 	{
-		return Head->info;
+		assert(count != 0);
+		return first->info;
 	}
 
 	//Function to return the last element in the list
@@ -367,18 +374,8 @@ public:
 	//the last element of the list is returned
 	Type back() const
 	{
-		if (Head != nullptr)
-		{
-			while (Head != nullptr)
-			{
-				Head = Head->link;
-				Type backTmp = Head;
-			}
-		}
-		return backTmp;
-
-		else
-			return 0;
+		assert(count != 0);
+		return last->info;
 	}
 
 	//Function to determine whether node is in the list
@@ -388,7 +385,7 @@ public:
 	{
 		for (int i = 0; i <= count; i++)
 		{
-			if (nodeInfo == Head->info)
+			if (nodeInfo == first->info)
 				return true;
 		}
 		return false;
@@ -400,8 +397,24 @@ public:
 	//the list, and count is incremented by 1;
 	void insertFirst(const Type& nodeInfo)
 	{
-		first * Head->info;
-	
+		nodeType<Type> * newNode;
+		newNode = new nodeType<Type>;
+		if (count == 0)
+		{
+			newNode->info = nodeInfo;
+			newNode->link = NULL;
+			newNode->info = nodeInfo;
+			newNode->link = NULL;
+			count++;
+		}
+		else
+		{
+			newNode->link = first;
+			first = newNode;
+			first->info = nodeInfo;
+			count++;
+		}
+
 	}
 
 	//Function to insert node at the end of the list
@@ -410,7 +423,31 @@ public:
 	//the list, and count is incremented by 1;
 	void insertLast(const Type& nodeInfo)
 	{
+		
+		if (count == 0)
+		{
+			first->info = nodeInfo;
+			first->link = NULL;
+			last->info = nodeInfo;
+			last->link = NULL;
+			count++;
+		}
+		else
+		{
+			nodeType<Type> * newNode;
+		newNode = new nodeType<Type>;
+			last->link = newNode;
+			last = newNode;
+			
+			if (count == 1)
+			{
+				first->link = newNode;
+			}
 
+			last->info = nodeInfo;
+			last->link = NULL;
+			count++;
+		}
 	}
 
 	//Function to delete node from the list
@@ -421,18 +458,20 @@ public:
 
 	}
 
-	//Function to return an iterator at the begining of the linked list
-	//Postcondition: Returns an iteratir such that the current is set to first
+	//Function to return an iterator at the beginning of the linked list
+	//Postcondition: Returns an iterator such that the current is set to first
 	linkedListIterator<Type> begin()
 	{
-
+		linkedListIterator<Type> tmp = first;
+		return tmp;
 	}
 
-	//Funcion to rturn an iterator at the end of the linked list
+	//Funcion to return an iterator at the end of the linked list
 	//Postcondition: Returns an iterator such that current is set to NULL
 	linkedListIterator<Type> end()
 	{
-
+		linkedListIterator<Type> tmp = last;
+		return tmp;
 	}
 
 	//Default constructor
@@ -440,22 +479,28 @@ public:
 	//Postcondition: first = NULL, last = NULL, count = 0;
 	linkedListType()
 	{
-
+		first = new nodeType<Type>;
+		last = new nodeType<Type>;
+		count = 0;
 	}
 
 	//copy constructor
 	linkedListType(const linkedListType<Type>& otherList)
 	{
+		this = otherList;
 
 	}
 
 	//deconstructor
 	//Deletes all the nodes from the list
 	//Postcondition: The list object is destroyed
-	~linkedListType<Type>() {}
+	~linkedListType<Type>(){}
 
 private:
 	//Function to make a copy of list
 	//Postcondition: A copy of list is created and assigned to this list
-	void copyList(const linkedListType<Type>& otherList) {}
+	void copyList(const linkedListType<Type>& otherList)
+	{
+		this = otherList;
+	}
 };
