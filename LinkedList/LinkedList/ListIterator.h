@@ -1,12 +1,6 @@
 #pragma once
 #include <iostream>
 
-template<typename Type>
-struct nodeType
-{
-	Type info;
-	nodeType<Type> *link;
-};
 
 
 //2D Vector
@@ -233,6 +227,12 @@ private:
 };
 
 
+template<typename Type>
+struct nodeType
+{
+	Type info;
+	nodeType<Type> *link;
+};
 
 
 template<typename Type>
@@ -266,7 +266,6 @@ public:
 	//Postcondition: The iterator is advanced to the next node
 	linkedListIterator<Type> operator++()
 	{
-
 		current = current->link;
 		return *this;
 	}
@@ -309,7 +308,11 @@ public:
 	//Overload the assignment operator
 	const linkedListType<Type>& operator = (const linkedListType<Type>& otherList)
 	{
-		
+		while (count != NULL)
+		{
+			first->info = otherList first->info;
+		}
+		return first;
 	}
 
 	//Initialize the list to an empty state
@@ -325,7 +328,7 @@ public:
 	//Postcondition: Returns true if the list is empty otherwise it returns false
 	bool isEmptyList() const
 	{
-		if (first== NULL)
+		if (first == NULL)
 			return true;
 		return false;
 	}
@@ -334,7 +337,22 @@ public:
 	//Postcondition: Node
 	void print() const
 	{
-		
+		//tried attempts:
+
+		/*linkedListType<Type> * tmp = new linkedListType<Type>();
+		for (int i = 0; i <= count; i++)
+			std::cout << tmp << "\n";
+		//outputs 000001CEAEABBDC10 4x
+		//likely since tmp is pointing at memory and not actually iterating through the list
+		*/
+
+		/*
+		for (int i = 0; i <= count; i++)
+			std::cout << first->info << "\n";
+		//outputs 10 4xs
+		// likely because it is reading only the first integer in the list and also not iterating through list
+		*/
+
 	}
 
 	//Function to return the number of nodes in the list
@@ -423,7 +441,7 @@ public:
 	//the list, and count is incremented by 1;
 	void insertLast(const Type& nodeInfo)
 	{
-		
+
 		if (count == 0)
 		{
 			first->info = nodeInfo;
@@ -435,10 +453,10 @@ public:
 		else
 		{
 			nodeType<Type> * newNode;
-		newNode = new nodeType<Type>;
+			newNode = new nodeType<Type>;
 			last->link = newNode;
 			last = newNode;
-			
+
 			if (count == 1)
 			{
 				first->link = newNode;
@@ -455,6 +473,16 @@ public:
 	//the first node, last points to the last node of the update list, and count is decremented by 1
 	void deleteNode(const Type& nodeInfo)
 	{
+		for (int i = 0; i <= count; i++)
+		{
+			if (nodeInfo == first->info)
+			{
+				delete first->info;
+				count--;
+				First->info = nodeInfo->next;
+			}
+
+		}
 
 	}
 
@@ -487,6 +515,7 @@ public:
 	//copy constructor
 	linkedListType(const linkedListType<Type>& otherList)
 	{
+
 		this = otherList;
 
 	}
@@ -494,7 +523,7 @@ public:
 	//deconstructor
 	//Deletes all the nodes from the list
 	//Postcondition: The list object is destroyed
-	~linkedListType<Type>(){}
+	~linkedListType<Type>() {}
 
 private:
 	//Function to make a copy of list
