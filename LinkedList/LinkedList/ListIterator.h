@@ -353,6 +353,22 @@ public:
 		// likely because it is reading only the first integer in the list and also not iterating through list
 		*/
 
+		/*
+		std::cout << first->info << "\n";
+		for (int i = 1; i <= count-2; i++)
+		{}
+		std::cout << last->info << "\n";
+		outputs : first and last node
+		//still does not print out in between other nodes
+		*/
+
+	nodeType<Type> * current;
+	
+	for (int i = 1; i <= count; i++)
+	{
+	std::cout << current->info;
+	}
+
 	}
 
 	//Function to return the number of nodes in the list
@@ -479,7 +495,7 @@ public:
 			{
 				delete first->info;
 				count--;
-				First->info = nodeInfo->next;
+				First->info = nodeInfo->info;
 			}
 
 		}
