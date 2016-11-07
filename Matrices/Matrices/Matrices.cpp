@@ -41,8 +41,8 @@ int main()
 	//					MATRICES					//
 	//////////////////////////////////////////////////
 
-	Matrix2 G = Matrix2(1, 2, 3, 4);
-	Matrix2 H = Matrix2(9, 8, 7, 6);
+	Mat2 G = Mat2(1, 2, 3, 4);
+	Mat2 H = Mat2(9, 8, 7, 6);
 
 
 

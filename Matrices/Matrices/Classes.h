@@ -334,40 +334,74 @@ private:
 //	MATRICES	  //
 ////////////////////
 
-class Matrix2
+
+
+
+
+////////////////////
+//	2D Matrix	  //
+////////////////////
+
+class Mat2
 {
 	float x, y, z, w;
+	float Matrix[2][2];
 
 public:
 
 // Constructors
-	Matrix2() {};
-	Matrix2(float X1, float Y1, float Z1, float W1)
+	Mat2() {};
+	Mat2(float X1, float Y1, float Z1, float W1)
 	{
 		x = X1;
 		y = Y1;
 		z = Z1;
 		w = W1;
-	};
-
-	// Operator Overloaders
-	Matrix2 operator + (const Matrix2 & add)const
+	}
+	Mat2(float Matrix_A[2][2])
 	{
-		
+		for (int i = 0; i < 2; i++)
+		{
+			for (int j = 0; j < 2; j++)
+			{
+				Matrix[i][j] = Matrix_A[i][j];
+			}
+		}
 	}
 
 
+	// Operator Overloaders
+	Mat2 operator + (const Mat2 & add)const
+	{
+		Mat2 Result();
+		for (int i = 0; i< 2; i++)
+		{
+			for (int j = 0 ; j <2; j++)
+			{
+				//Result(i,j)=
+			}
+		}
+		
+		//return Matrix[][] = Mat2[][] + Matrix[][];
+	}
 
 };
 
-class Matrix3
+
+
+
+////////////////////
+//	3D Matrix	  //
+////////////////////
+class Mat3
 {
 private:
 	float a, b, c, d, e, f, g, h, i;
+	float Matrix[3][3][3];
 
 public:
-	Matrix3() {};
-	Matrix3(float A1, float B1, float C1, float D1, float E1, float F1, float G1, float H1, float I1)
+	Mat3() {};
+	Mat3(float A1, float B1, float C1, float D1, float E1, float F1, float G1, float H1, float I1)
 	{
 		a = A1;
 		b = B1;
@@ -380,4 +414,22 @@ public:
 		i = I1;
 	}
 
+	Mat3(float Matrix_B[3][3][3])
+	{
+		for (int x = 0; x < 3; x++)
+		{
+			for (int y = 0; y < 3; y++)
+			{
+				for (int z = 0; z < 3; z++)
+				{
+					Matrix[x][y][z] = Matrix_B[x][y][z];
+				}
+			}
+		}
+	}
+
+	Mat3 operator + (const Mat3 & add) const
+	{
+		
+	}
 };
