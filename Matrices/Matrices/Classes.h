@@ -344,27 +344,33 @@ private:
 
 class Mat2
 {
-	float x, y, z, w;
-	float Matrix[2][2];
-
+	
+	float row, col, Matrix[2][2];
 public:
 
 // Constructors
 	Mat2() {};
 	Mat2(float X1, float Y1, float Z1, float W1)
 	{
-		x = X1;
-		y = Y1;
-		z = Z1;
-		w = W1;
+		for (int i = 0; i < row; i++)
+		{
+			for (int j = 0; j < col; j++)
+			{
+				Matrix[i][j];
+			}
+		}
+
 	}
+
 	Mat2(float Matrix_A[2][2])
 	{
+		row = 0;
+		col = 0;
 		for (int i = 0; i < 2; i++)
 		{
 			for (int j = 0; j < 2; j++)
 			{
-				Matrix[i][j] = Matrix_A[i][j];
+				Matrix[i][j] = 0;
 			}
 		}
 	}
@@ -374,17 +380,42 @@ public:
 	Mat2 operator + (const Mat2 & add)const
 	{
 		Mat2 Result();
+		//Result.row = add.col = row;
 		for (int i = 0; i< 2; i++)
 		{
 			for (int j = 0 ; j <2; j++)
 			{
-				//Result(i,j)=
+				Result(i, j) = Matrix[i][j] + add[i][j];
 			}
 		}
 		
 		//return Matrix[][] = Mat2[][] + Matrix[][];
 	}
 
+	Mat2 operator - (const Mat2 & substract)const
+	{
+
+	}
+
+
+	bool operator == (const Mat2 & equal2)const
+	{
+		if (row == equal2.row && col ==equal2.col)
+			return 1;
+		else
+			return 0;
+	}
+
+	bool operator != (const Mat2 & notequals)const
+	{
+		if (row != notequals.row && col != notequals.col)
+			return 1;
+		else
+			return 0;
+	}
+
+
+	~Mat2() {};
 };
 
 
@@ -432,4 +463,5 @@ public:
 	{
 		
 	}
+	~Mat3() {};
 };
