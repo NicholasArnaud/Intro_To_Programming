@@ -22,6 +22,7 @@
     <ProjectGuid>{3A408102-A399-41CE-BD98-82691915F1F7}</ProjectGuid>
     <RootNamespace>Matrices</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Math For Games</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -110,7 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Matrices.cpp" />
+    <ClCompile Include="Math Library.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes.h" />
