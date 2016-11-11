@@ -114,8 +114,6 @@ public:
 
 	//Get variables
 
-	
-
 	float Getx() const
 	{
 		return x;
@@ -366,8 +364,7 @@ public:
 	{
 		// [Normalize]
 		//  ^A  => < Ax/|->A| , Ay/|->A|>
-		Vector4 tmp = Vector4(x / Mag(), y / Mag(), z / Mag(), w / Mag());
-		return tmp;
+		return Vector4(x / Mag(), y / Mag(), z / Mag(), w / Mag());
 	}
 
 	float DotProd(const Vector4& A)
@@ -433,6 +430,7 @@ public:
 		Combo.X2 = (X2 * mult.X1) + (Y2 * mult.X2);
 		Combo.Y2 = (X2 * mult.Y1) + (Y2 * mult.Y2);
 
+
 		return Combo;
 	}
 
@@ -443,7 +441,8 @@ public:
 		Matrix2 tmpM;
 		tmpV.Getx()= (a.Getx * tmpM.X1)+ (a.Gety * tmpM.X2);
 		tmpV.Gety()= (a.Getx * tmpM.Y1)+ (a.Gety * tmpM.Y2);
-		return tmpV;*/
+		return tmpV;
+		*/
 
 		float x = (a.Getx() * this->X1) + (a.Gety() * this->X2);
 		float y = (a.Getx() * this->Y1) + (a.Gety() * this->Y2);
@@ -488,10 +487,29 @@ public:
 		z3 = Z3;
 	}
 
-
-	bool operator == (Matrix3 & equal2)const
+	Matrix3 operator* (const Matrix3 & mult) const
 	{
-		if (x1 == equal2.x1 && y1 == equal2.y1 && z1 == equal2.z1 && x2 == equal2.x2 && y2 == equal2.y2 && z2 == equal2.z2 && x3 == equal2.x3 && y3 == equal2.y3 && z3 == equal2.z3)
+		Matrix3 Combo;
+		
+		Combo.x1 = (x1 * mult.x1) + (y1 * mult.x2) + (z1 * mult.x3);
+		Combo.y1 = (x1 * mult.y1) + (y1 * mult.y2) + (z1 * mult.y3);
+		Combo.z1 = (x1 * mult.z1) + (y1 * mult.z2) + (z1 * mult.z3);
+
+		Combo.x2 = (x2 * mult.x1) + (y2 * mult.x2) + (z2 * mult.x3);
+		Combo.y2 = (x2 * mult.y1) + (y2 * mult.y2) + (z2 * mult.y3);
+		Combo.z2 = (x2 * mult.z1) + (y2 * mult.z2) + (z2 * mult.z3);
+
+		Combo.x3 = (x3 * mult.x1) + (y3 * mult.x2) + (z3 * mult.x3);
+		Combo.y3 = (x3 * mult.y1) + (y3 * mult.y2) + (z3 * mult.y3);
+		Combo.z3 = (x3 * mult.z1) + (y3 * mult.z2) + (z3 * mult.z3);
+
+
+		return Combo;
+	}
+
+	bool operator == (Matrix3 & other)const
+	{
+		if (x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3)
 			return 1;
 		else
 			return 0;

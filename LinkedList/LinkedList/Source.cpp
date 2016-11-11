@@ -7,24 +7,6 @@
 int main()
 {
 	//////////////////////////////////////////////////
-	//					VECTORS						//
-	//////////////////////////////////////////////////
-	
-	Vector2D<int> A = Vector2D<int>(1, 0);
-	Vector2D<int>  B = Vector2D<int>(0, 1);
-
-	assert(A + B == Vector2D<int>(1, 1));
-	assert(A - B == Vector2D<int>(1, -1));
-	assert(A * B == Vector2D<int>(0, 0));
-
-	Vector3D<int> L = Vector3D<int>(1, 5, 10);
-	Vector3D<int> F = Vector3D<int>(10, 2, 5);
-
-	assert(L + F == Vector3D<int>(11, 7, 15));
-	assert(L - F == Vector3D<int>(-9, 3, 5));
-	assert(L * F == Vector3D<int>(10, 10, 50));
-
-	//////////////////////////////////////////////////
 	//				LINKED LISTS					//
 	//////////////////////////////////////////////////
 	nodeType<int> * Head;
