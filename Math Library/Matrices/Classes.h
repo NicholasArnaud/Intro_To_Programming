@@ -437,13 +437,6 @@ public:
 
 	Vector2 operator * (const Vector2 & a)
 	{
-	/*	Vector2 tmpV;
-		Matrix2 tmpM;
-		tmpV.Getx()= (a.Getx * tmpM.X1)+ (a.Gety * tmpM.X2);
-		tmpV.Gety()= (a.Getx * tmpM.Y1)+ (a.Gety * tmpM.Y2);
-		return tmpV;
-		*/
-
 		float x = (a.Getx() * this->X1) + (a.Gety() * this->X2);
 		float y = (a.Getx() * this->Y1) + (a.Gety() * this->Y2);
 		Vector2 tmpV = Vector2(x, y);
@@ -509,13 +502,73 @@ public:
 
 	bool operator == (Matrix3 & other)const
 	{
-		if (x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3)
-			return 1;
-		else
-			return 0;
+		return (x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3);
 	}
 
 	
 
 	~Matrix3() {};
+};
+
+
+class Matrix4
+{
+private: 
+	float x1, y1, z1, w1, x2, y2, z2, w2, x3, y3, z3, w3, x4, y4, z4, w4;
+
+public:
+	Matrix4() {};
+	Matrix4(float X1, float Y1, float Z1, float W1, float X2, float Y2, float Z2, float W2, float X3, float Y3, float Z3, float W3, float X4, float Y4, float Z4, float W4)
+	{
+		x1 = X1;
+		y1 = Y1;
+		z1 = Z1;
+		w1 = W1;
+		x2 = X2;
+		y2 = Y2;
+		z2 = Z2;
+		w2 = W2;
+		x3 = X3;
+		y3 = Y3;
+		z3 = Z3;
+		w3 = W3;
+		x4 = X4;
+		y4 = Y4;
+		z4 = Z4;
+		w4 = W4;
+	}
+
+	Matrix4 operator * (const Matrix4 & mult) const
+	{
+		Matrix4 Combo;
+
+		Combo.x1 = (x1 * mult.x1) + (y1 * mult.x2) + (z1 * mult.x3) + (w1 * mult.x4);
+		Combo.y1 = (x1 * mult.y1) + (y1 * mult.y2) + (z1 * mult.y3) + (w1 * mult.y4);
+		Combo.z1 = (x1 * mult.z1) + (y1 * mult.z2) + (z1 * mult.z3) + (w1 * mult.z4);
+		Combo.w1 = (x1 * mult.w1) + (y1 * mult.w2) + (z1 * mult.w3) + (w1 * mult.w4);
+
+		Combo.x2 = (x2 * mult.x1) + (y2 * mult.x2) + (z2 * mult.x3) + (w2 * mult.x4);
+		Combo.y2 = (x2 * mult.y1) + (y2 * mult.y2) + (z2 * mult.y3) + (w2 * mult.y4);
+		Combo.z2 = (x2 * mult.z1) + (y2 * mult.z2) + (z2 * mult.z3) + (w2 * mult.z4);
+		Combo.w2 = (x2 * mult.w1) + (y2 * mult.w2) + (z2 * mult.w3) + (w2 * mult.w4);
+
+		Combo.x3 = (x3 * mult.x1) + (y3 * mult.x2) + (z3 * mult.x3) + (w3 * mult.x4);
+		Combo.y3 = (x3 * mult.y1) + (y3 * mult.y2) + (z3 * mult.y3) + (w3 * mult.y4);
+		Combo.z3 = (x3 * mult.z1) + (y3 * mult.z2) + (z3 * mult.z3) + (w3 * mult.z4);
+		Combo.w3 = (x3 * mult.w1) + (y3 * mult.w2) + (z3 * mult.w3) + (w3 * mult.w4);
+
+		Combo.x4 = (x4 * mult.x1) + (y4 * mult.x2) + (z4 * mult.x3) + (w4 * mult.x4);
+		Combo.y4 = (x4 * mult.y1) + (y4 * mult.y2) + (z4 * mult.y3) + (w4 * mult.y4);
+		Combo.z4 = (x4 * mult.z1) + (y4 * mult.z2) + (z4 * mult.z3) + (w4 * mult.z4);
+		Combo.w4 = (x4 * mult.w1) + (y4 * mult.w2) + (z4 * mult.w3) + (w4 * mult.w4);
+
+		return Combo;
+	}
+	bool operator == (Matrix4 & other)const
+	{
+		return(x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && w1 == other.w1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && w2 == other.w2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3 && w3 == other.w3 && x4 == other.x4 && y4 == other.y4 && z4 == other.z4 && w4 == other.w4);
+	}
+
+
+	
 };

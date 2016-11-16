@@ -137,12 +137,12 @@ public:
 		//still does not print out in between other nodes
 		*/
 
-	nodeType<Type> * current;
-	
-	for (int i = 1; i <= count; i++)
-	{
-	std::cout << current->info;
-	}
+		nodeType<Type> * current;
+
+		for (int i = 1; i <= count; i++)
+		{
+			std::cout << current->info;
+		}
 
 	}
 
@@ -321,6 +321,8 @@ private:
 	//Postcondition: A copy of list is created and assigned to this list
 	void copyList(const linkedListType<Type>& otherList)
 	{
-		this = otherList;
+		first = otherlist.first;
+		count = otherlist.count;
+		last = otherlist.last;
 	}
 };
