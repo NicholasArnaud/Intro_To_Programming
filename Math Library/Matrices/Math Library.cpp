@@ -21,6 +21,12 @@ int main()
 	assert(A + B == Vector2(1, 1));
 	assert(A - B == Vector2(1, -1));
 	assert(A * B == Vector2(0, 0));
+	A.Add(B);
+	A.DotProd(B);
+	A.Getx();
+	A.Gety();
+
+
 
 	Vector3 C = Vector3(1, 5, 10);
 	Vector3 D = Vector3(10, 2, 5);
@@ -73,6 +79,9 @@ int main()
 	Matrix3 N = Matrix3(9, 8, 7, 6, 5, 4, 3, 2, 1);
 	assert(M*N == Matrix3(30, 24, 18, 84, 69, 54, 138, 114, 90));
 
+	Matrix3 idenityMat3 = Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+	idenityMat3.setRotateX(90);
+	idenityMat3.setRotateY(90);
 
 
 	//////////////////////////
@@ -87,7 +96,7 @@ int main()
 	Matrix4 P = Matrix4(12, 23, 34, 45, 56, 67, 78, 89, 90, 10, 21, 32, 43, 54, 65, 76);
 	assert(O*P == Matrix4(6226,4433,5643,6853,15070,11209,14355,17501,4838,4767,6516,8265,11690,8650,11070, 13490));
 
-
-
+	Matrix4 idenityMat4 = Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+	idenityMat4.setRotateX(90);
 	return 1;
 }

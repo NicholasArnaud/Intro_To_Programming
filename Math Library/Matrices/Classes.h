@@ -53,7 +53,7 @@ public:
 		MULT.x = x * Mult;
 		MULT.y = y * Mult;
 		return MULT;
-	}	
+	}
 
 
 	Vector2 Add(const Vector2& A)
@@ -164,7 +164,6 @@ public:
 		SUB.z = z - Sub.z;
 		return SUB;
 	}
-
 	Vector3 operator * (const Vector3 & Mult)const
 	{
 		Vector3 MULT;
@@ -185,7 +184,6 @@ public:
 	bool operator == (const Vector3 & equal) const
 	{
 		return (x == equal.x && y == equal.y && z == equal.z);
-
 	}
 
 
@@ -240,7 +238,7 @@ public:
 		return (x *A.x) + (y*A.y) + (z*A.z);
 	}
 
-	Vector3 CrossProd(const Vector3& A)
+	Vector3 CrossProd(const Vector3& A)const
 	{
 		//[Cross Product]
 		// ->A X ->B  =  
@@ -253,6 +251,7 @@ public:
 
 
 private:
+	float * fp;
 	float x, y, z;
 };
 
@@ -325,6 +324,7 @@ public:
 
 
 
+	//Maths
 
 	Vector4 Add(const Vector4& A)
 	{
@@ -371,12 +371,13 @@ public:
 	{
 		//[Dot Product]
 		//  ->A * ->B = Ax Bx + Ay By +.... An Bn
-		return (x *A.x) + (y*A.y);
+		return (x *A.x) + (y*A.y) + (z*A.z) + (w*A.w);
 	}
 
 
 private:
 	float x, y, z, w;
+	float *fp;
 };
 
 
@@ -417,7 +418,7 @@ public:
 		///////////////
 	}
 
-	
+
 
 	// Operator Overloaders
 
@@ -446,10 +447,19 @@ public:
 	bool operator == (Matrix2 & other)const
 	{
 		return (X1 == other.X1 && Y1 == other.Y1 && X2 == other.X2 && Y2 == other.Y2);
-	
+
 	}
 
-	
+	Matrix2 setRotateX(float angle)const
+	{
+		Matrix2 tmp;
+		tmp.X1 = cos(angle)*X1;
+		tmp.Y1 = -sin(angle)*Y1;
+		tmp.X2 = sin(angle)*X2;
+		tmp.Y2 = cos(angle)*Y2;
+		return tmp;
+	}
+
 
 	~Matrix2() {};
 };
@@ -462,6 +472,13 @@ public:
 ////////////////////
 class Matrix3
 {
+	///////////////////
+	//	 3D Matrix	 //
+	//	X1 , Y1 , Z1 //
+	//  X2 , Y2 , Z2 //
+	//  X3 , Y3 , Z3 //
+	///////////////////
+
 private:
 	float x1, y1, z1, x2, y2, z2, x3, y3, z3;
 
@@ -483,7 +500,7 @@ public:
 	Matrix3 operator* (const Matrix3 & mult) const
 	{
 		Matrix3 Combo;
-		
+
 		Combo.x1 = (x1 * mult.x1) + (y1 * mult.x2) + (z1 * mult.x3);
 		Combo.y1 = (x1 * mult.y1) + (y1 * mult.y2) + (z1 * mult.y3);
 		Combo.z1 = (x1 * mult.z1) + (y1 * mult.z2) + (z1 * mult.z3);
@@ -505,15 +522,35 @@ public:
 		return (x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3);
 	}
 
-	
+	Matrix3 setRotateX(float angle)const
+	{
+		Matrix3 tmp;
+		tmp.y2 = cos(angle)*y2;
+		tmp.z2 = -sin(angle)*z2;
+		tmp.y3 = sin(angle)*y3;
+		tmp.z3 = cos(angle)*z3;
+		return tmp;
+	}
+	Matrix3 setRotateY(float angle)const
+	{
+		Matrix3 tmp;
+		tmp.x1 = cos(angle)*x1;
+		tmp.z1 = sin(angle)*z1;
+		tmp.x3 = -sin(angle)*x3;
+		tmp.z3 = cos(angle)*z3;
+		return tmp;
+	}
 
 	~Matrix3() {};
 };
 
 
+////////////////////
+//	4D Matrix	  //
+////////////////////
 class Matrix4
 {
-private: 
+private:
 	float x1, y1, z1, w1, x2, y2, z2, w2, x3, y3, z3, w3, x4, y4, z4, w4;
 
 public:
@@ -569,6 +606,35 @@ public:
 		return(x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && w1 == other.w1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && w2 == other.w2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3 && w3 == other.w3 && x4 == other.x4 && y4 == other.y4 && z4 == other.z4 && w4 == other.w4);
 	}
 
+	Matrix4 setRotateX(float angle)const
+	{
+		/*Matrix4 tmp;
+		tmp.y2 = cos(angle)*y2;
+		tmp.z2 = -sin(angle)*z2;
+		tmp.y3 = sin(angle)*y3;
+		tmp.z3 = cos(angle)*z3;
+		return tmp;*/
 
-	
+		1, 0, 0, 0;
+		0, cos(angle)*y2, -sin(angle)*z2, 0;
+		0, sin(angle)*y3, cos(angle)*z3, 0;
+
+	}
+	Matrix4 setRotateY(float angle)const
+	{
+		/*Matrix4 tmp;
+		tmp.x1 = cos(angle)*x1;
+		tmp.z1 = sin(angle)*z1;
+		tmp.x3 = -sin(angle)*x3;
+		tmp.z3 = cos(angle)*z3;
+		return tmp;*/
+
+		cos(angle)*x1, 0, sin(angle)*z1, 0;
+		0, 1, 0, 0;
+		-sin(angle)*x3, 0, cos(angle)*z3, 0;
+		0, 0, 0, 1;
+		
+	}
+
+	~Matrix4() {};
 };
