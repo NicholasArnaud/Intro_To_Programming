@@ -1,0 +1,167 @@
+==================================================================================== 
+VECTORS 
+
+
+
+
+2D Vectors: 
+Vector A: 1,0
+Vector B: 0,1
+
+Vector A + Vector B equals: 
+1,1
+Excpected Result is: 1,1 
+
+
+Vector A - Vector B equals: 
+1,-1
+Excpected Result is: 1,-1 
+
+
+Vector A * Vector B equals: 
+0,0
+Excpected Result is: 0,0 
+
+
+
+2D Vector Dot is: 
+5,10
+2D Vector Dot2 is: 
+2,6
+The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : 
+70
+Expected Result is: 70 
+
+
+
+3D Vectors: 
+Vector C: 1,5,10
+Vector D: 10,2,5
+
+Vector C + Vector D equals: 
+11,7,15
+Excpected Result is: 11, 7, 15 
+
+
+Vector C - Vector D equals: 
+-9,3,5
+Excpected Result is: -9, 3, 5 
+
+
+Vector C * Vector D equals: 
+10,10,50
+Excpected Result is: 10, 10, 50 
+
+
+The Cross Product of Vector C with Vector D is: 5,95,-48
+Expected Result is: 5,95,-48
+
+
+
+4D Vectors: 
+Vector E: 1, 2, 3, 4
+Vector F: 5, 6, 7, 8
+
+Vector E + Vector F equals: 
+6, 8, 10, 12
+Excpected Result is: 6, 8, 10, 12 
+
+
+Vector E - Vector F equals: 
+-4, -4, -4, -4
+Excpected Result is: -4, -4, -4, -4 
+
+
+Vector E * Vector F equals: 
+5, 12, 21, 32
+Excpected Result is: 5, 12, 21, 32 
+
+
+
+2D Matrix for multiplying a 2D Vector: 
+2,4
+6,8
+Matrix K * Vector L equals: 
+22,32
+Excpected Result is: 
+22, 32 
+
+
+==================================================================================== 
+MATRICES 
+
+
+
+
+
+
+2D Matrices: 
+Matrix G: 
+1,4
+4,2
+Matrix H: 
+2,1
+4,2
+
+Matrix G * Matrix H equals: 
+18,9
+16,8
+
+Excpected Result is: 
+18, 9 
+16, 8 
+
+
+3D Matrices: 
+
+Matrix M: 
+1,2,3
+4,5,6
+7,8,9
+Matrix N: 
+9,8,7
+6,5,4
+3,2,1
+
+Matrix M * Matrix N equals: 
+30,24,18
+84,69,54
+138,114,90
+
+Excpected Result is: 
+30, 24, 18
+84, 69, 54
+138, 114, 90
+
+
+4D Matrices: 
+
+Matrix O: 
+
+11,22,33,44
+55,66,77,88
+99,10,20,30
+40,50,60,70
+
+Matrix P: 
+
+12,23,34,45
+56,67,78,89
+90,10,21,32
+43,54,65,76
+
+Matrix O * Matrix P equals: 
+
+6226,4433,5643,6853
+15070,11209,14355,17501
+4838,4767,6516,8265
+11690,8650,11070,13490
+
+Excpected Result is: 
+
+6226, 4433, 5643, 6853
+15070, 11209, 14355, 17501
+4838, 4767, 6516, 8265
+11690, 8650, 11070, 13490 
+
+

@@ -1,5 +1,11 @@
 #pragma once
+#include <windows.h>
+#include <iostream>
+#include <istream>
 #include <math.h>
+#include <cassert>
+#include <fstream>
+#include <ostream>
 
 ////////////////////
 //	VECTORS		  //
@@ -55,6 +61,11 @@ public:
 		return MULT;
 	}
 
+	friend std::ostream &operator << (std::ostream &output, const Vector2 & v)
+	{
+		output << v.x << "," << v.y;
+		return output;
+	}
 
 	Vector2 Add(const Vector2& A)
 	{
@@ -164,6 +175,7 @@ public:
 		SUB.z = z - Sub.z;
 		return SUB;
 	}
+
 	Vector3 operator * (const Vector3 & Mult)const
 	{
 		Vector3 MULT;
@@ -172,6 +184,7 @@ public:
 		MULT.z = z * Mult.z;
 		return MULT;
 	}
+
 	Vector3 operator * (const float & Mult)const
 	{
 		Vector3 MULT;
@@ -186,6 +199,11 @@ public:
 		return (x == equal.x && y == equal.y && z == equal.z);
 	}
 
+	friend std::ostream &operator << (std::ostream &output, const Vector3 & v)
+	{
+		output << v.x << "," << v.y << "," << v.z;
+		return output;
+	}
 
 
 
@@ -245,13 +263,12 @@ public:
 		// Ay Bz - Az By , x
 		// Ax Bz - Az Bx , y
 		// Ax By - Ay Bx , z
-		Vector3 tmp = Vector3(x *A.z - z * A.y, x * A.z - z * A.x, x* A.y - y* A.x);
+		Vector3 tmp = Vector3(y *A.z - z * A.y, z * A.x - x * A.z, x* A.y - y* A.x);
 		return tmp;
 	}
 
 
 private:
-	float * fp;
 	float x, y, z;
 };
 
@@ -321,6 +338,11 @@ public:
 
 	}
 
+	friend std::ostream &operator << (std::ostream &output, const Vector4 & v)
+	{
+		output << v.x << ", " << v.y << ", " << v.z << ", " << v.w;
+		return output;
+	}
 
 
 
@@ -377,11 +399,11 @@ public:
 
 private:
 	float x, y, z, w;
-	float *fp;
 };
 
 
-
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 
 
 
@@ -398,15 +420,25 @@ private:
 ////////////////////
 class Matrix2
 {
+	///////////////
+	// 2D Matrix //
+	//	X1 , Y1  //
+	//  X2 , Y2  //
+	///////////////
 
-	float X1, Y1, X2, Y2;
+private:
+	float 
+		X1, Y1,
+		X2, Y2;
 
 public:
 
 	// Constructors
 	Matrix2() {};
 
-	Matrix2(float x1, float y1, float x2, float y2)
+	Matrix2(
+		float x1, float y1,
+		float x2, float y2)
 	{
 		X1 = x1;
 		Y1 = y1;
@@ -450,6 +482,12 @@ public:
 
 	}
 
+	friend std::ostream &operator << (std::ostream &output, const Matrix2 & v)
+	{
+		output << v.X1 << "," << v.Y1 << "\n" << v.X2 << "," << v.Y2;
+		return output;
+	}
+
 	Matrix2 setRotateX(float angle)const
 	{
 		Matrix2 tmp;
@@ -480,11 +518,17 @@ class Matrix3
 	///////////////////
 
 private:
-	float x1, y1, z1, x2, y2, z2, x3, y3, z3;
+	float
+		x1, y1, z1,
+		x2, y2, z2,
+		x3, y3, z3;
 
 public:
 	Matrix3() {};
-	Matrix3(float X1, float Y1, float Z1, float X2, float Y2, float Z2, float X3, float Y3, float Z3)
+	Matrix3(
+		float X1, float Y1, float Z1,
+		float X2, float Y2, float Z2,
+		float X3, float Y3, float Z3)
 	{
 		x1 = X1;
 		y1 = Y1;
@@ -522,14 +566,23 @@ public:
 		return (x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3);
 	}
 
-	Matrix3 setRotateX(float angle)const
+	friend std::ostream &operator << (std::ostream &output, const Matrix3 & v)
 	{
-		Matrix3 tmp;
-		tmp.y2 = cos(angle)*y2;
-		tmp.z2 = -sin(angle)*z2;
-		tmp.y3 = sin(angle)*y3;
-		tmp.z3 = cos(angle)*z3;
-		return tmp;
+		output << v.x1 << "," << v.y1 << "," << v.z1 << "\n" << v.x2 << "," << v.y2 << "," << v.z2 << "\n" << v.x3 << "," << v.y3 << "," << v.z3;
+		return output;
+	}
+
+	Matrix3 setrotateX(float angle)const
+	{
+
+		Matrix3 rotMatrix = Matrix3(
+			1, 0, 0,
+			0, cos(angle), -sin(angle),
+			0, sin(angle), cos(angle)
+
+		);
+
+		return  rotMatrix;
 	}
 	Matrix3 setRotateY(float angle)const
 	{
@@ -545,17 +598,35 @@ public:
 };
 
 
+
+
 ////////////////////
 //	4D Matrix	  //
 ////////////////////
 class Matrix4
 {
+	//////////////////////////
+	//		4D Matrix		//
+	//	X1 , Y1 , Z1 , W1	//
+	//  X2 , Y2 , Z2 , W2	//
+	//  X3 , Y3 , Z3 , W3	//
+	//  X4 , Y4 , Z4 , W4	//
+	//////////////////////////
+
 private:
-	float x1, y1, z1, w1, x2, y2, z2, w2, x3, y3, z3, w3, x4, y4, z4, w4;
+	float 
+		x1, y1, z1, w1,
+		x2, y2, z2, w2,
+		x3, y3, z3, w3,
+		x4, y4, z4, w4;
 
 public:
 	Matrix4() {};
-	Matrix4(float X1, float Y1, float Z1, float W1, float X2, float Y2, float Z2, float W2, float X3, float Y3, float Z3, float W3, float X4, float Y4, float Z4, float W4)
+	Matrix4(
+		float X1, float Y1, float Z1, float W1,
+		float X2, float Y2, float Z2, float W2,
+		float X3, float Y3, float Z3, float W3,
+		float X4, float Y4, float Z4, float W4)
 	{
 		x1 = X1;
 		y1 = Y1;
@@ -601,39 +672,41 @@ public:
 
 		return Combo;
 	}
+
 	bool operator == (Matrix4 & other)const
 	{
 		return(x1 == other.x1 && y1 == other.y1 && z1 == other.z1 && w1 == other.w1 && x2 == other.x2 && y2 == other.y2 && z2 == other.z2 && w2 == other.w2 && x3 == other.x3 && y3 == other.y3 && z3 == other.z3 && w3 == other.w3 && x4 == other.x4 && y4 == other.y4 && z4 == other.z4 && w4 == other.w4);
 	}
 
-	Matrix4 setRotateX(float angle)const
+	friend std::ostream &operator << (std::ostream &output, const Matrix4 & v)
 	{
-		/*Matrix4 tmp;
-		tmp.y2 = cos(angle)*y2;
-		tmp.z2 = -sin(angle)*z2;
-		tmp.y3 = sin(angle)*y3;
-		tmp.z3 = cos(angle)*z3;
-		return tmp;*/
-
-		1, 0, 0, 0;
-		0, cos(angle)*y2, -sin(angle)*z2, 0;
-		0, sin(angle)*y3, cos(angle)*z3, 0;
-
+		output << v.x1 << "," << v.y1 << "," << v.z1 <<"," << v.w1 <<"\n" << v.x2 << "," << v.y2 << "," << v.z2 << "," << v.w2 << "\n" << v.x3 << "," << v.y3 << "," << v.z3 << "," << v.w3 << "\n" << v.x4 << "," << v.y4 << "," << v.z4 << "," << v.w4;
+		return output;
 	}
+
+	Matrix4 setrotateX(float angle)const
+	{
+
+		Matrix4 rotMatrix = Matrix4(
+			1, 0, 0, 0,
+			0, cos(angle), -sin(angle), 0,
+			0, sin(angle), cos(angle), 0,
+			0, 0, 0, 1
+		);
+
+		return  rotMatrix;
+	}
+
 	Matrix4 setRotateY(float angle)const
 	{
-		/*Matrix4 tmp;
+		Matrix4 tmp;
+		tmp = *this;
 		tmp.x1 = cos(angle)*x1;
 		tmp.z1 = sin(angle)*z1;
 		tmp.x3 = -sin(angle)*x3;
 		tmp.z3 = cos(angle)*z3;
-		return tmp;*/
+		return tmp;
 
-		cos(angle)*x1, 0, sin(angle)*z1, 0;
-		0, 1, 0, 0;
-		-sin(angle)*x3, 0, cos(angle)*z3, 0;
-		0, 0, 0, 1;
-		
 	}
 
 	~Matrix4() {};
