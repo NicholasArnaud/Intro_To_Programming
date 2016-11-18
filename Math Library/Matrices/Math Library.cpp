@@ -26,9 +26,6 @@ int main()
 	assert(A * B == Vector2(0, 0));
 	Dot.Add(Dot2);
 	A.DotProd(B);
-	A.Getx();
-	A.Gety();
-	
 
 
 	Vector3 C = Vector3(1, 5, 10);
@@ -47,7 +44,9 @@ int main()
 	assert(E + F == Vector4(6, 8, 10, 12));
 	assert(E - F == Vector4(-4, -4, -4, -4));
 	assert(E * F == Vector4(5, 12, 21, 32));
-
+	E.DotProd(F);
+	E.Mag();
+	E.Normal();
 
 
 	//////////////////////////////////////////////////
@@ -73,6 +72,8 @@ int main()
 	Matrix2 J = G* H;
 	assert(G * H == Matrix2(18, 9, 16, 8));
 
+	Matrix2 id2 = Matrix2(1, 2, 3, 4);
+	id2.setRotateX(90);
 
 	///////////////////
 	//	 3D Matrix	 //
@@ -91,10 +92,10 @@ int main()
 		0, 0, 1);
 
 
-	Matrix3 id = Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
-	Matrix3 a = id.setrotateX(1);
-	//idenityMat3.setRotateX(90);
-	//idenityMat3.setRotateY(90);
+	Matrix3 id3 = Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
+	Matrix3 d = id3.setrotateX(90);
+	Matrix3 o = id3.setRotateY(90);
+	Matrix3 x = id3.setrotateZ(90);
 
 
 	//////////////////////////
@@ -109,8 +110,10 @@ int main()
 	Matrix4 P = Matrix4(12, 23, 34, 45, 56, 67, 78, 89, 90, 10, 21, 32, 43, 54, 65, 76);
 	assert(O*P == Matrix4(6226, 4433, 5643, 6853, 15070, 11209, 14355, 17501, 4838, 4767, 6516, 8265, 11690, 8650, 11070, 13490));
 
-	Matrix4 idenityMat4 = Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-	idenityMat4.setrotateX(90);
+	Matrix4 id4 = Matrix4(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+	Matrix4 f = id4.setrotateX(90);
+	Matrix4 e = id4.setRotateY(90);
+	Matrix4 l = id4.setrotateZ(90);
 
 
 
@@ -158,8 +161,16 @@ int main()
 		file << "Excpected Result is: 10, 10, 50 " << "\n\n\n";
 
 		file << "The Cross Product of Vector C with Vector D is: " << C.CrossProd(D)<< "\n";
-		file << "Expected Result is: 5,95,-48" << "\n\n\n\n";
+		file << "Expected Result is: 5,95,-48" << "\n\n\n";
 
+		file << "The Dot Product of Vector C with Vector D is: " << C.DotProd(D) << "\n";
+		file << "Expected Result is: 70" << "\n\n\n";
+
+		file << "The Magnitude of Vector C is: " << C.Mag() << "\n";
+		file << "Expected Result is: 11.225" << "\n\n\n";
+
+		file << "Normalization of Vector C is: " << C.Normal() << "\n";
+		file << "Expected Result is: 0.0890871,0.445435,0.890871"<< "\n\n\n\n";
 
 		file << "4D Vectors: \n" << "Vector E: " << E << "\n" << "Vector F: " << F << "\n\n";
 		file << "Vector E + Vector F equals: " << "\n" << E + F << "\n";
@@ -171,11 +182,13 @@ int main()
 
 
 		file << "Vector E * Vector F equals: " << "\n" << E * F << "\n";
-		file << "Excpected Result is: 5, 12, 21, 32 " << "\n\n\n\n";
+		file << "Excpected Result is: 5, 12, 21, 32 " << "\n\n\n";
 
-		
+		file << "The Magnitude of Vector E is: " << E.Mag() << "\n";
+		file << "Expected Result is: 5.47723" << "\n\n\n";
 
-
+		file << "Vector E Normalized is: " << E.Normal() << "\n";
+		file << "Expected Result is: 0.182574, 0.365148, 0.547723, 0.730297" << "\n\n\n";
 
 		file << "2D Matrix for multiplying a 2D Vector: \n" << K << "\n";
 		file << "Matrix K * Vector L equals: " << "\n" << K*L << "\n";

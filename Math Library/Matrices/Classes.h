@@ -379,7 +379,7 @@ public:
 	{
 		// [Magnitude] 
 		//  |->A|  =>  \| Ax * Ax + Ay * Ay
-		return sqrt((x * x) + (y*y));
+		return sqrt((x * x) + (y*y) + (z*z) + (w*w));
 	}
 
 	Vector4 Normal()
@@ -427,7 +427,7 @@ class Matrix2
 	///////////////
 
 private:
-	float 
+	float
 		X1, Y1,
 		X2, Y2;
 
@@ -491,10 +491,20 @@ public:
 	Matrix2 setRotateX(float angle)const
 	{
 		Matrix2 tmp;
-		tmp.X1 = cos(angle)*X1;
-		tmp.Y1 = -sin(angle)*Y1;
-		tmp.X2 = sin(angle)*X2;
-		tmp.Y2 = cos(angle)*Y2;
+		if (angle == 90)
+		{
+			Matrix2 rotMatrix = Matrix2(
+				0, -1,
+				1, 0);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix2 rotMatrix = Matrix2(
+				cos(angle), -sin(angle),
+				sin(angle), cos(angle));
+			tmp = rotMatrix * *this;
+		}
 		return tmp;
 	}
 
@@ -574,24 +584,71 @@ public:
 
 	Matrix3 setrotateX(float angle)const
 	{
+		Matrix3 tmp;
+		if (angle == 90)
+		{
+			Matrix3 rotMatrix = Matrix3(
+				1, 0, 0,
+				0, 0, -1,
+				0, 1, 0);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix3 rotMatrix = Matrix3(
+				1, 0, 0,
+				0, cos(angle), -sin(angle),
+				0, sin(angle), cos(angle));
+			tmp = rotMatrix * *this;
+		}
 
-		Matrix3 rotMatrix = Matrix3(
-			1, 0, 0,
-			0, cos(angle), -sin(angle),
-			0, sin(angle), cos(angle)
-
-		);
-
-		return  rotMatrix;
+		return  tmp;
 	}
+
 	Matrix3 setRotateY(float angle)const
 	{
 		Matrix3 tmp;
-		tmp.x1 = cos(angle)*x1;
-		tmp.z1 = sin(angle)*z1;
-		tmp.x3 = -sin(angle)*x3;
-		tmp.z3 = cos(angle)*z3;
-		return tmp;
+		if (angle == 90)
+		{
+			Matrix3 rotMatrix = Matrix3(
+				0, 0, -1,
+				0, 1, 0,
+				1, 0, 0);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix3 rotMatrix = Matrix3(
+				cos(angle), 0, -sin(angle),
+				0, 1, 0,
+				sin(angle), 0, cos(angle));
+			tmp = rotMatrix * *this;
+		}
+
+		return  tmp;
+	}
+
+	Matrix3 setrotateZ(float angle)const
+	{
+		Matrix3 tmp;
+		if (angle == 90)
+		{
+			Matrix3 rotMatrix = Matrix3(
+				0, -1, 0,
+				1, 0, 0,
+				0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix3 rotMatrix = Matrix3(
+				cos(angle), -sin(angle),0,
+				sin(angle), cos(angle), 0,
+				0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
+
+		return  tmp;
 	}
 
 	~Matrix3() {};
@@ -614,7 +671,7 @@ class Matrix4
 	//////////////////////////
 
 private:
-	float 
+	float
 		x1, y1, z1, w1,
 		x2, y2, z2, w2,
 		x3, y3, z3, w3,
@@ -680,33 +737,84 @@ public:
 
 	friend std::ostream &operator << (std::ostream &output, const Matrix4 & v)
 	{
-		output << v.x1 << "," << v.y1 << "," << v.z1 <<"," << v.w1 <<"\n" << v.x2 << "," << v.y2 << "," << v.z2 << "," << v.w2 << "\n" << v.x3 << "," << v.y3 << "," << v.z3 << "," << v.w3 << "\n" << v.x4 << "," << v.y4 << "," << v.z4 << "," << v.w4;
+		output << v.x1 << "," << v.y1 << "," << v.z1 << "," << v.w1 << "\n" << v.x2 << "," << v.y2 << "," << v.z2 << "," << v.w2 << "\n" << v.x3 << "," << v.y3 << "," << v.z3 << "," << v.w3 << "\n" << v.x4 << "," << v.y4 << "," << v.z4 << "," << v.w4;
 		return output;
 	}
 
 	Matrix4 setrotateX(float angle)const
 	{
+		Matrix4 tmp;
+		if (angle == 90)
+		{
+			Matrix4 rotMatrix = Matrix4(
+				1, 0, 0, 0,
+				0, 0, -1, 0,
+				0, 1, 0, 0,
+				0, 0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix4 rotMatrix = Matrix4(
+				1, 0, 0, 0,
+				0, cos(angle), -sin(angle), 0,
+				0, sin(angle), cos(angle), 0,
+				0, 0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
 
-		Matrix4 rotMatrix = Matrix4(
-			1, 0, 0, 0,
-			0, cos(angle), -sin(angle), 0,
-			0, sin(angle), cos(angle), 0,
-			0, 0, 0, 1
-		);
-
-		return  rotMatrix;
+		return  tmp;
 	}
 
 	Matrix4 setRotateY(float angle)const
 	{
 		Matrix4 tmp;
-		tmp = *this;
-		tmp.x1 = cos(angle)*x1;
-		tmp.z1 = sin(angle)*z1;
-		tmp.x3 = -sin(angle)*x3;
-		tmp.z3 = cos(angle)*z3;
-		return tmp;
+		if (angle == 90)
+		{
+			Matrix4 rotMatrix = Matrix4(
+				0, 0, -1, 0,
+				0, 1, 0, 0,
+				1, 0, 0, 0,
+				0, 0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix4 rotMatrix = Matrix4(
+				cos(angle), 0, -sin(angle), 0,
+				0, 1, 0, 0,
+				sin(angle), 0, cos(angle), 0,
+				0, 0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
 
+		return  tmp;
+
+	}
+
+	Matrix4 setrotateZ(float angle)const
+	{
+		Matrix4 tmp;
+		if (angle == 90)
+		{
+			Matrix4 rotMatrix = Matrix4(
+				0, -1, 0, 0,
+				1, 0, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix4 rotMatrix = Matrix4(
+				cos(angle), -sin(angle), 0, 0,
+				sin(angle), cos(angle), 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1);
+			tmp = rotMatrix * *this;
+		}
+
+		return  tmp;
 	}
 
 	~Matrix4() {};

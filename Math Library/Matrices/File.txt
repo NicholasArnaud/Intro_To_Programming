@@ -57,6 +57,18 @@ The Cross Product of Vector C with Vector D is: 5,95,-48
 Expected Result is: 5,95,-48
 
 
+The Dot Product of Vector C with Vector D is: 70
+Expected Result is: 70
+
+
+The Magnitude of Vector C is: 11.225
+Expected Result is: 11.225
+
+
+Normalization of Vector C is: 0.0890871,0.445435,0.890871
+Expected Result is: 0.0890871,0.445435,0.890871
+
+
 
 4D Vectors: 
 Vector E: 1, 2, 3, 4
@@ -76,6 +88,13 @@ Vector E * Vector F equals:
 5, 12, 21, 32
 Excpected Result is: 5, 12, 21, 32 
 
+
+The Magnitude of Vector E is: 5.47723
+Expected Result is: 5.47723
+
+
+Vector E Normalized is: 0.182574, 0.365148, 0.547723, 0.730297
+Expected Result is: 0.182574, 0.365148, 0.547723, 0.730297
 
 
 2D Matrix for multiplying a 2D Vector: 
