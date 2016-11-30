@@ -507,6 +507,27 @@ public:
 		}
 		return tmp;
 	}
+	Matrix2 setRotateY(float angle)const
+	{
+		Matrix2 tmp;
+		if (angle == 90)
+		{
+			Matrix2 rotMatrix = Matrix2(
+				0, 0,
+				0, 1
+				);
+			tmp = rotMatrix * *this;
+		}
+		else
+		{
+			Matrix2 rotMatrix = Matrix2(
+				cos(angle), 0,
+				0, 1);
+			tmp = rotMatrix * *this;
+		}
+
+		return  tmp;
+	}
 
 
 	~Matrix2() {};
