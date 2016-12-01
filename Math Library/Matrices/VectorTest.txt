@@ -1,0 +1,121 @@
+==================================================================================== 
+VECTORS 
+
+
+
+
+2D Vectors: 
+Vector A: 1,0
+Vector B: 0,1
+
+Vector A + Vector B equals: 
+1,1
+Excpected Result is: 1,1 
+
+
+Vector A - Vector B equals: 
+1,-1
+Excpected Result is: 1,-1 
+
+
+Vector A * Vector B equals: 
+0,0
+Excpected Result is: 0,0 
+
+
+
+2D Vector Dot is: 
+5,10
+2D Vector Dot2 is: 
+2,6
+The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : 
+70
+Expected Result is: 70 
+
+
+2D Vector norm is: 
+3,14
+2D Vector norm Normalized is: 
+0.209529,0.977802
+Expected Result is: 0.20952 , 0.97780 
+
+
+
+3D Vectors: 
+Vector C: 1,5,10
+Vector D: 10,2,5
+
+Vector C + Vector D equals: 
+11,7,15
+Excpected Result is: 11, 7, 15 
+
+
+Vector C - Vector D equals: 
+-9,3,5
+Excpected Result is: -9, 3, 5 
+
+
+Vector C * Vector D equals: 
+10,10,50
+Excpected Result is: 10, 10, 50 
+
+
+The Cross Product of Vector C with Vector D is: 
+5,95,-48
+Expected Result is: 5,95,-48
+
+
+The Dot Product of Vector C with Vector D is: 
+70
+Expected Result is: 70
+
+
+The Magnitude of Vector C is: 
+11.225
+Expected Result is: 11.225
+
+
+Normalization of Vector C is: 
+0.0890871,0.445435,0.890871
+Expected Result is: 0.0890871,0.445435,0.890871
+
+
+
+4D Vectors: 
+Vector E: 1, 2, 3, 4
+Vector F: 5, 6, 7, 8
+
+Vector E + Vector F equals: 
+6, 8, 10, 12
+Excpected Result is: 6, 8, 10, 12 
+
+
+Vector E - Vector F equals: 
+-4, -4, -4, -4
+Excpected Result is: -4, -4, -4, -4 
+
+
+Vector E * Vector F equals: 
+5, 12, 21, 32
+Excpected Result is: 5, 12, 21, 32 
+
+
+The Magnitude of Vector E is: 
+5.47723
+Expected Result is: 5.47723
+
+
+Vector E Normalized is: 0.182574, 0.365148, 0.547723, 0.730297
+Expected Result is: 0.182574, 0.365148, 0.547723, 0.730297
+
+
+2D Matrix for multiplying a 2D Vector: 
+2,4
+6,8
+Matrix K * Vector L equals: 
+
+22,32
+Excpected Result is: 
+22, 32 
+
+

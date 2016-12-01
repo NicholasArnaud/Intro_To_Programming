@@ -20,6 +20,7 @@
 class Vector2
 {
 public:
+	//Constructors
 	Vector2() {};
 	Vector2(float X1, float Y1)
 	{
@@ -29,6 +30,8 @@ public:
 
 
 	//Operator Over Loaders
+
+	//Overloads "+" to be able to add 2D Vectors
 	Vector2 operator + (const Vector2 & add)const
 	{
 		Vector2 ADD;
@@ -37,6 +40,7 @@ public:
 		return ADD;
 	}
 
+	//Overloads "-" to be able to subract 2D Vectors
 	Vector2 operator - (const Vector2 & Sub)const
 	{
 		Vector2 SUB;
@@ -45,6 +49,7 @@ public:
 		return SUB;
 	}
 
+	//Overloads "*" to be able to multiply 2D Vectors
 	Vector2 operator * (const Vector2 & Mult)const
 	{
 		Vector2 MULT;
@@ -53,6 +58,7 @@ public:
 		return MULT;
 	}
 
+	//Overloads "*" to be able to multiply 2D Vectors with a regular number
 	Vector2 operator * (const float & Mult)const
 	{
 		Vector2 MULT;
@@ -61,12 +67,23 @@ public:
 		return MULT;
 	}
 
+	//Overloads "==" to be able to compare 2D Vectors
+	bool operator == (const Vector2 & equal) const
+	{
+		return (x == equal.x && y == equal.y);
+	}
+
+	//Overloads "<<" to be able to print out 2D Vectors
 	friend std::ostream &operator << (std::ostream &output, const Vector2 & v)
 	{
 		output << v.x << "," << v.y;
 		return output;
 	}
 
+
+	//Math Problems
+
+	//Adds two 2D Vectors
 	Vector2 Add(const Vector2& A)
 	{
 		// [Addition] 
@@ -75,6 +92,7 @@ public:
 		return tmp;
 	}
 
+	//Subtracts two 2D Vectors
 	Vector2 Substract(const Vector2& A)
 	{
 		// [Subtraction]
@@ -83,6 +101,8 @@ public:
 		return tmp;
 	}
 
+	//Scalar Multiplies a 2D Vector
+	//essentially multiplies a 2D Vector to a regular number
 	Vector2 ScalarMult(float mult)
 	{
 		// [Scalar Multipling]
@@ -92,8 +112,8 @@ public:
 		return tmp;
 	}
 
-
-
+	//Gets the Magnitude of a 2D Vector
+	//which is x squared + y squared, and all square rooted
 	float Mag()
 	{
 		// [Magnitude] 
@@ -101,6 +121,8 @@ public:
 		return sqrt((x * x) + (y*y));
 	}
 
+	//Normalizes a 3D vector
+	//it uses x, and y, each divided by the Magnitude to get normalization
 	Vector2 Normal()
 	{
 		// [Normalize]
@@ -109,17 +131,13 @@ public:
 		return tmp;
 	}
 
+	//Gets the Dot Product of 3D Vectors
+	//Multiplies each Vectors x, and y together and then adds them together 
 	float DotProd(const Vector2& A)
 	{
 		//[Dot Product]
 		//  ->A * ->B = Ax Bx + Ay By +.... An Bn
 		return (x *A.x) + (y*A.y);
-	}
-
-
-	bool operator == (const Vector2 & equal) const
-	{
-		return (x == equal.x && y == equal.y);
 	}
 
 
@@ -148,6 +166,7 @@ private:
 class Vector3
 {
 public:
+	//Constructors
 	Vector3() {};
 	Vector3(float X, float Y, float Z)
 	{
@@ -158,6 +177,8 @@ public:
 
 
 	//Operator Over Loaders
+
+	//Overloads "+" to be able to add 3D Vectors
 	Vector3 operator + (const Vector3 & add)const
 	{
 		Vector3 ADD;
@@ -167,6 +188,7 @@ public:
 		return ADD;
 	}
 
+	//Overloads "-" to be able to subract 3D Vectors
 	Vector3 operator - (const Vector3 & Sub)const
 	{
 		Vector3 SUB;
@@ -176,6 +198,7 @@ public:
 		return SUB;
 	}
 
+	//Overloads "*" to be able to multiply 3D Vectors
 	Vector3 operator * (const Vector3 & Mult)const
 	{
 		Vector3 MULT;
@@ -185,6 +208,7 @@ public:
 		return MULT;
 	}
 
+	//Overloads "*" to be able to multiply 3D Vectors with a regular number
 	Vector3 operator * (const float & Mult)const
 	{
 		Vector3 MULT;
@@ -194,11 +218,13 @@ public:
 		return MULT;
 	}
 
+	//Overloads "==" to be able to compare 3D Vectors
 	bool operator == (const Vector3 & equal) const
 	{
 		return (x == equal.x && y == equal.y && z == equal.z);
 	}
 
+	//Overloads "<<" to be able to print out 3D Vectors
 	friend std::ostream &operator << (std::ostream &output, const Vector3 & v)
 	{
 		output << v.x << "," << v.y << "," << v.z;
@@ -206,7 +232,9 @@ public:
 	}
 
 
+	//Math Problems
 
+	//Adds two 3D Vectors
 	Vector3 Add(const Vector3& A)
 	{
 		// [Addition] 
@@ -215,6 +243,7 @@ public:
 		return tmp;
 	}
 
+	//Subtracts two 3D Vectors
 	Vector3 Substract(const Vector3& A)
 	{
 		// [Subtraction]
@@ -223,6 +252,8 @@ public:
 		return tmp;
 	}
 
+	//Scalar Multiplies a 3D Vector
+	//essentially multiplies a 3D Vector to a regular number
 	Vector3 ScalarMult(float mult)
 	{
 		// [Scalar Multipling]
@@ -233,7 +264,8 @@ public:
 	}
 
 
-
+	//Gets the Magnitude of a 3D Vector
+	//which is x squared + y squared + z squared, and all square rooted
 	float Mag()
 	{
 		// [Magnitude] 
@@ -241,6 +273,8 @@ public:
 		return sqrt((x * x) + (y*y) + (z*z));
 	}
 
+	//Normalizes a 3D vector
+	//it uses x,y,and z each divided by the Magnitude to get normalization
 	Vector3 Normal()
 	{
 		// [Normalize]
@@ -249,6 +283,8 @@ public:
 		return tmp;
 	}
 
+	//Gets the Dot Product of 3D Vectors
+	//Multiplies each Vectors x,y, and z together and then adds them together 
 	float DotProd(const Vector3& A)
 	{
 		//[Dot Product]
@@ -256,6 +292,8 @@ public:
 		return (x *A.x) + (y*A.y) + (z*A.z);
 	}
 
+	//Gets the Cross Product of two 3D Vectors
+	//Cross multiplies the two vectors
 	Vector3 CrossProd(const Vector3& A)const
 	{
 		//[Cross Product]
@@ -281,6 +319,7 @@ private:
 class Vector4
 {
 public:
+	//Constructors
 	Vector4() {};
 	Vector4(float X1, float Y1, float Z1, float W1)
 	{
@@ -292,6 +331,8 @@ public:
 
 
 	//Operator Over Loaders
+
+	//Overloads "+" to be able to add 4D Vectors
 	Vector4 operator + (const Vector4 & add)const
 	{
 		Vector4 ADD;
@@ -302,6 +343,7 @@ public:
 		return ADD;
 	}
 
+	//Overloads "-" to be able to subract 4D Vectors
 	Vector4 operator - (const Vector4 & Sub)const
 	{
 		Vector4 SUB;
@@ -312,6 +354,7 @@ public:
 		return SUB;
 	}
 
+	//Overloads "*" to be able to multiply 4D Vectors
 	Vector4 operator * (const Vector4 & Mult)const
 	{
 		Vector4 MULT;
@@ -322,6 +365,7 @@ public:
 		return MULT;
 	}
 
+	//Overloads "*" to be able to multiply 4D Vectors with a regular number
 	Vector4 operator * (const float & Mult)const
 	{
 		Vector4 MULT;
@@ -332,12 +376,14 @@ public:
 		return MULT;
 	}
 
+	//Overloads "==" to be able to compare 4D Vectors
 	bool operator == (const Vector4 & equal) const
 	{
 		return ((x == equal.x) && (y == equal.y) && (z == equal.z) && (w == equal.w));
 
 	}
 
+	//Overloads "<<" to be able to print out 4D Vectors
 	friend std::ostream &operator << (std::ostream &output, const Vector4 & v)
 	{
 		output << v.x << ", " << v.y << ", " << v.z << ", " << v.w;
@@ -346,8 +392,9 @@ public:
 
 
 
-	//Maths
+	//Math Problems
 
+	//Adds two 4D Vectors
 	Vector4 Add(const Vector4& A)
 	{
 		// [Addition] 
@@ -356,6 +403,7 @@ public:
 		return tmp;
 	}
 
+	//Subtracts two 4D Vectors
 	Vector4 Substract(const Vector4& A)
 	{
 		// [Subtraction]
@@ -364,6 +412,8 @@ public:
 		return tmp;
 	}
 
+	//Scalar Multiplies a 4D Vector
+	//essentially multiplies a 4D Vector to a regular number
 	Vector4 ScalarMult(float mult)
 	{
 		// [Scalar Multipling]
@@ -373,8 +423,8 @@ public:
 		return tmp;
 	}
 
-
-
+	//Gets the Magnitude of a 4D Vector
+	//which is x squared + y squared + z squared + w squared, and all square rooted
 	float Mag()
 	{
 		// [Magnitude] 
@@ -382,6 +432,8 @@ public:
 		return sqrt((x * x) + (y*y) + (z*z) + (w*w));
 	}
 
+	//Normalizes a 4D vector
+	//it uses x, y, z and w each divided by the Magnitude to get normalization
 	Vector4 Normal()
 	{
 		// [Normalize]
@@ -389,6 +441,8 @@ public:
 		return Vector4(x / Mag(), y / Mag(), z / Mag(), w / Mag());
 	}
 
+	//Gets the Dot Product of 4D Vectors
+	//Multiplies each Vectors x,y, z and w together and then adds them together
 	float DotProd(const Vector4& A)
 	{
 		//[Dot Product]
@@ -488,7 +542,7 @@ public:
 		return output;
 	}
 
-	Matrix2 setRotateX(float angle)const
+	/*Matrix2 setRotateX(float angle)const
 	{
 		Matrix2 tmp;
 		if (angle == 90)
@@ -527,7 +581,7 @@ public:
 		}
 
 		return  tmp;
-	}
+	}*/
 
 
 	~Matrix2() {};

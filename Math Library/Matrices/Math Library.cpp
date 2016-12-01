@@ -21,11 +21,15 @@ int main()
 	Vector2 Dot = Vector2(5, 10);
 	Vector2 Dot2 = Vector2(2, 6);
 
+	Vector2 norm = Vector2(3, 14);
+
 	assert(A + B == Vector2(1, 1));
 	assert(A - B == Vector2(1, -1));
 	assert(A * B == Vector2(0, 0));
+
 	Dot.Add(Dot2);
 	A.DotProd(B);
+	norm.Normal();
 
 
 	Vector3 C = Vector3(1, 5, 10);
@@ -73,7 +77,6 @@ int main()
 	assert(G * H == Matrix2(18, 9, 16, 8));
 
 	Matrix2 id2 = Matrix2(1, 2, 3, 4);
-	id2.setRotateX(90);
 
 	///////////////////
 	//	 3D Matrix	 //
@@ -125,7 +128,7 @@ int main()
 
 
 	std::fstream file;
-	file.open("File.txt", std::ios_base::out);
+	file.open("VectorTest.txt", std::ios_base::out);
 	if (file.is_open())
 	{
 		//prints Vectors
@@ -145,8 +148,12 @@ int main()
 		file << "Excpected Result is: 0,0 " << "\n\n\n\n";
 
 		file << "2D Vector Dot is: \n" << Dot << "\n" << "2D Vector Dot2 is: \n" << Dot2 << "\n";
-		file << "The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : " << "\n" << Dot.DotProd(Dot2)<< "\n";
-		file << "Expected Result is: 70 \n\n\n\n";
+		file << "The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : " << "\n" << Dot.DotProd(Dot2) << "\n";
+		file << "Expected Result is: 70 \n\n\n";
+
+		file << "2D Vector norm is: \n" << norm << "\n";
+		file << "2D Vector norm Normalized is: \n" << norm.Normal() << "\n";
+		file << "Expected Result is: 0.20952 , 0.97780 \n\n\n\n";
 
 		file << "3D Vectors: \n" << "Vector C: " << C << "\n" << "Vector D: " << D << "\n\n";
 		file << "Vector C + Vector D equals: " << "\n" << C + D << "\n";
@@ -160,17 +167,17 @@ int main()
 		file << "Vector C * Vector D equals: " << "\n" << C * D << "\n";
 		file << "Excpected Result is: 10, 10, 50 " << "\n\n\n";
 
-		file << "The Cross Product of Vector C with Vector D is: " << C.CrossProd(D)<< "\n";
+		file << "The Cross Product of Vector C with Vector D is: \n" << C.CrossProd(D) << "\n";
 		file << "Expected Result is: 5,95,-48" << "\n\n\n";
 
-		file << "The Dot Product of Vector C with Vector D is: " << C.DotProd(D) << "\n";
+		file << "The Dot Product of Vector C with Vector D is: \n" << C.DotProd(D) << "\n";
 		file << "Expected Result is: 70" << "\n\n\n";
 
-		file << "The Magnitude of Vector C is: " << C.Mag() << "\n";
+		file << "The Magnitude of Vector C is: \n" << C.Mag() << "\n";
 		file << "Expected Result is: 11.225" << "\n\n\n";
 
-		file << "Normalization of Vector C is: " << C.Normal() << "\n";
-		file << "Expected Result is: 0.0890871,0.445435,0.890871"<< "\n\n\n\n";
+		file << "Normalization of Vector C is: \n" << C.Normal() << "\n";
+		file << "Expected Result is: 0.0890871,0.445435,0.890871" << "\n\n\n\n";
 
 		file << "4D Vectors: \n" << "Vector E: " << E << "\n" << "Vector F: " << F << "\n\n";
 		file << "Vector E + Vector F equals: " << "\n" << E + F << "\n";
@@ -184,17 +191,22 @@ int main()
 		file << "Vector E * Vector F equals: " << "\n" << E * F << "\n";
 		file << "Excpected Result is: 5, 12, 21, 32 " << "\n\n\n";
 
-		file << "The Magnitude of Vector E is: " << E.Mag() << "\n";
+		file << "The Magnitude of Vector E is: \n" << E.Mag() << "\n";
 		file << "Expected Result is: 5.47723" << "\n\n\n";
 
 		file << "Vector E Normalized is: " << E.Normal() << "\n";
 		file << "Expected Result is: 0.182574, 0.365148, 0.547723, 0.730297" << "\n\n\n";
 
 		file << "2D Matrix for multiplying a 2D Vector: \n" << K << "\n";
-		file << "Matrix K * Vector L equals: " << "\n" << K*L << "\n";
+		file << "Matrix K * Vector L equals: \n" << "\n" << K*L << "\n";
 		file << "Excpected Result is: " << "\n" << "22, 32 " << "\n\n\n";
+	}
+	file.close();
 
-		//prints Matrices
+	//prints Matrices
+	file.open("MatrixTest.txt", std::ios_base::out);
+	if (file.is_open())
+	{
 		file << "==================================================================================== \n";
 		file << "MATRICES \n\n\n\n\n\n\n";
 
@@ -212,16 +224,6 @@ int main()
 		file << "4D Matrices: \n\n" << "Matrix O: \n\n" << O << "\n\n" << "Matrix P: \n\n" << P << "\n\n";
 		file << "Matrix O * Matrix P equals: " << "\n\n" << O * P << "\n\n";
 		file << "Excpected Result is: " << "\n\n" << "6226, 4433, 5643, 6853" << "\n" << "15070, 11209, 14355, 17501" << "\n" << "4838, 4767, 6516, 8265" << "\n" << "11690, 8650, 11070, 13490 " << "\n\n\n";
-
-
-
-
-
-
-	}
-	else
-	{
-		std::cout << "NO WORKY \n";
 	}
 	file.close();
 
