@@ -126,7 +126,6 @@ int main()
 
 
 
-
 	std::fstream file;
 	file.open("VectorTest.txt", std::ios_base::out);
 	if (file.is_open())
@@ -226,8 +225,6 @@ int main()
 		file << "Excpected Result is: " << "\n\n" << "6226, 4433, 5643, 6853" << "\n" << "15070, 11209, 14355, 17501" << "\n" << "4838, 4767, 6516, 8265" << "\n" << "11690, 8650, 11070, 13490 " << "\n\n\n";
 	}
 	file.close();
-
-
 
 
 	return 1;
