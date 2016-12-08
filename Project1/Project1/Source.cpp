@@ -4,9 +4,8 @@
 
 int main()
 {
-	int no;
+	std::cout << "Hello World \n";
 
-	printf(%u, 'i');
-
+	system("pause");
 	return 1;
 }

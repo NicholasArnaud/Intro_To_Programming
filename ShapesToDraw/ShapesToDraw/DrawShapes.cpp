@@ -10,10 +10,9 @@ Point::Point(float x, float y)
 int main()
 {
 
-	Point * pointA = new Point(2, 3);
+	Point pointA(2, 3);
 
-	pointA->DebugPrint();
-
+	pointA.DebugPrint();
 	
 
 	return 1;
