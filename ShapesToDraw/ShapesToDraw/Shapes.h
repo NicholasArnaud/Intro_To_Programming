@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 
 /*
 We need you to create a set of classes that represent 2D shapes
@@ -14,8 +14,6 @@ of the attributes for the shape. How that string is formatted is up to you.
 how those attributes are accessed, etc.
 */
 
-double pi = 3.141592653589793238462643383279;
-
 
 class BaseShape
 {
@@ -28,8 +26,16 @@ class Point : public BaseShape
 {
 
 public:
-	Point(float x, float y);
+	//Point();
+	Point(float X, float Y)
+	{
+		x = X;
+		y = Y;
+	}
+
 	~Point();
+	void DebugPrint() override;
+
 private:
 	float x;
 	float y;
@@ -39,20 +45,37 @@ private:
 class Line : public BaseShape
 {
 public:
-	Line(float x1, float y1, float x2 , float y2);
+	Line(float X1, float Y1, float X2, float Y2)
+	{
+		x1 = X1;
+		y1 = Y1;
+		x2 = X2;
+		y2 = Y2;
+	}
+	void DebugPrint() override;
 	~Line();
 private:
 	float x1;
 	float y1;
 	float x2;
 	float y2;
+	
 };
 
 
 class Triangle : public BaseShape
 {
 public:
-	Triangle(float x1, float y1, float x2, float y2, float x3, float y3);
+	Triangle(float X1, float Y1, float X2, float Y2, float X3, float Y3)
+	{
+		x1 = X1;
+		y1 = Y1;
+		x2 = X2;
+		y2 = Y2;
+		x3 = X3;
+		y3 = Y3;
+	}
+	void DebugPrint() override;
 	~Triangle();
 private:
 	float x1;
@@ -61,19 +84,32 @@ private:
 	float y2;
 	float x3;
 	float y3;
+	
 };
 
 
 class Rectangle : public BaseShape
 {
 public:
-	Rectangle(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4);
+	Rectangle(float X1, float Y1, float X2, float Y2, float X3, float Y3, float X4, float Y4)
+	{
+		x1 = X1;
+		y1 = Y1;
+		x2 = X2;
+		y2 = Y2;
+		x3 = X3;
+		y3 = Y3;
+		x4 = X4;
+		y4 = Y4;
+	}
+	void DebugPrint() override;
 	~Rectangle();
+
 private:
 	float x1;
 	float y1;
-	float x2; 
-	float y2; 
+	float x2;
+	float y2;
 	float x3;
 	float y3;
 	float x4;
@@ -81,46 +117,81 @@ private:
 };
 
 
+double pi = 3.141592653589793238462643383279;
+
 class Circle : public BaseShape
 {
 public:
-	Circle(double rad, float center);
+	Circle(double Rad, float Center)
+	{
+		rad = Rad;
+		center = Center;
+	}
+	void DebugPrint() override;
 	~Circle();
 private:
 	double rad;
 	float center;
+	
 };
+
 
 
 
 //Debug Printing
 
- void  Point::BaseShape::DebugPrint() override
+Point::~Point()
 {
-	 Point A;
-	 std::cout << "Position: " << A.x << A.y << "\n";
+}
+
+void Point::DebugPrint()
+{
+	std::cout << "Point Position: " << x << " , " << y << "\n\n";
 }
 
 
-void Line::BaseShape::DebugPrint()
+Line::~Line()
 {
+}
 
+void Line::DebugPrint()
+{
+	std::cout << "Line From:  " << x1 << " , " << y1 << "\n";
+	std::cout << "Line To: " << x2 << " , " << y2 << "\n\n";
 }
 
 
-void Triangle::BaseShape::DebugPrint()
+Triangle::~Triangle()
 {
+}
 
+void Triangle::DebugPrint()
+{
+	std::cout << "Triangle Point A: " << x1 << " , " << y1 << "\n";
+	std::cout << "Triangle Point B: " << x2 << " , " << y2 << "\n";
+	std::cout << "Triangle Point C: " << x3 << " , " << y3 << "\n\n";
 }
 
 
-void Rectangle::BaseShape::DebugPrint()
+ Rectangle::~Rectangle()
 {
+}
 
+void Rectangle::DebugPrint()
+{
+	std::cout << "Rectangle Point A: " << x1 << " , " << y1 << "\n";
+	std::cout << "Rectangle Point B: " << x2 << " , " << y2 << "\n";
+	std::cout << "Rectangle Point C: " << x3 << " , " << y3 << "\n";
+	std::cout << "Rectangle Point D: " << x4 << " , " << y4 << "\n\n";
 }
 
 
-void Circle::BaseShape::DebugPrint()
+
+Circle::~Circle()
+{
+}
+
+void Circle::DebugPrint()
 {
 
 }
