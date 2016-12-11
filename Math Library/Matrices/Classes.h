@@ -86,8 +86,8 @@ public:
 	{
 		x = x - subEqual.x;
 		y = y - subEqual.y;
-
 	}
+
 	//Overloads "<<" to be able to print out 2D Vectors
 	friend std::ostream &operator << (std::ostream &output, const Vector2 & v)
 	{
@@ -237,6 +237,23 @@ public:
 	bool operator == (const Vector3 & equal) const
 	{
 		return (x == equal.x && y == equal.y && z == equal.z);
+	}
+
+	//Overloads "+=" to add and set a new value of 2D Vectors 
+	void operator += (const Vector3 & plusEqual)
+	{
+		x = x + plusEqual.x;
+		y = y + plusEqual.y;
+		z = z + plusEqual.z;
+
+	}
+
+	//Overloads "-=" to add and set a new value of 2D Vectors 
+	void operator -= (const Vector3 & subEqual)
+	{
+		x = x - subEqual.x;
+		y = y - subEqual.y;
+		z = z - subEqual.z;
 	}
 
 	//Overloads "<<" to be able to print out 3D Vectors
@@ -398,6 +415,24 @@ public:
 
 	}
 
+	void operator += (const Vector4 & plusEqual)
+	{
+		x = x + plusEqual.x;
+		y = y + plusEqual.y;
+		z = z + plusEqual.z;
+		w = w + plusEqual.w;
+
+	}
+
+	//Overloads "-=" to add and set a new value of 2D Vectors 
+	void operator -= (const Vector4 & subEqual)
+	{
+		x = x - subEqual.x;
+		y = y - subEqual.y;
+		z = z - subEqual.z;
+		w = w - subEqual.w;
+	}
+
 	//Overloads "<<" to be able to print out 4D Vectors
 	friend std::ostream &operator << (std::ostream &output, const Vector4 & v)
 	{
@@ -556,47 +591,6 @@ public:
 		output << v.X1 << "," << v.Y1 << "\n" << v.X2 << "," << v.Y2;
 		return output;
 	}
-
-	/*Matrix2 setRotateX(float angle)const
-	{
-		Matrix2 tmp;
-		if (angle == 90)
-		{
-			Matrix2 rotMatrix = Matrix2(
-				0, -1,
-				1, 0);
-			tmp = rotMatrix * *this;
-		}
-		else
-		{
-			Matrix2 rotMatrix = Matrix2(
-				cos(angle), -sin(angle),
-				sin(angle), cos(angle));
-			tmp = rotMatrix * *this;
-		}
-		return tmp;
-	}
-	Matrix2 setRotateY(float angle)const
-	{
-		Matrix2 tmp;
-		if (angle == 90)
-		{
-			Matrix2 rotMatrix = Matrix2(
-				0, 0,
-				0, 1
-				);
-			tmp = rotMatrix * *this;
-		}
-		else
-		{
-			Matrix2 rotMatrix = Matrix2(
-				cos(angle), 0,
-				0, 1);
-			tmp = rotMatrix * *this;
-		}
-
-		return  tmp;
-	}*/
 
 
 	~Matrix2() {};
