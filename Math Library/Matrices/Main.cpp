@@ -1,12 +1,8 @@
 #include <iostream>
-#include <istream>
+#include <fstream>
 #include <math.h>
 #include <cassert>
-#include "Classes.h"
-#include <fstream>
-
-
-
+#include "MathLib.h"
 
 
 int main()
