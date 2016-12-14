@@ -1,11 +1,11 @@
-// compile with: /c /EHsc
-// post-build command: lib MathFuncsLib.obj
+
 
 #include "MathLib.h"
 #include <iostream>
 
 
 #pragma region Vector2
+
 Vector2::Vector2(float X1, float Y1)
 {
 	x = X1;
@@ -60,7 +60,7 @@ void Vector2::operator-=(const Vector2 & subEqual)
 	y = y - subEqual.y;
 }
 
-Vector2 Vector2::Add(const Vector2 & A)
+Vector2 Vector2::Add2(const Vector2 & A)
 {
 	// [Addition] 
 	//  ->A + ->B = ->C   =>  <Ax + By, Ay + By...., An, Bn>
@@ -68,7 +68,7 @@ Vector2 Vector2::Add(const Vector2 & A)
 	return tmp;
 }
 
-Vector2 Vector2::Substract(const Vector2 & A)
+Vector2 Vector2::Subtract2(const Vector2 & A)
 {
 	// [Subtraction]
 	// ->A -  ->B = ->C   =>  <Ax - Bx, Ay - By, ..., An - Bn>
@@ -76,7 +76,7 @@ Vector2 Vector2::Substract(const Vector2 & A)
 	return tmp;
 }
 
-Vector2 Vector2::ScalarMult(float mult)
+Vector2 Vector2::ScalarMult2(float mult)
 {
 	// [Scalar Multipling]
 	//  Let K be a constant Variable
@@ -85,22 +85,22 @@ Vector2 Vector2::ScalarMult(float mult)
 	return tmp;
 }
 
-float Vector2::Mag()
+float Vector2::Mag2()
 {
 	// [Magnitude] 
 	//  |->A|  =>  \| Ax * Ax + Ay * Ay
 	return sqrt((x * x) + (y*y));
 }
 
-Vector2 Vector2::Normal()
+Vector2 Vector2::Normal2()
 {
 	// [Normalize]
 	//  ^A  => < Ax/|->A| , Ay/|->A|>
-	Vector2 tmp = Vector2(x / Mag(), y / Mag());
+	Vector2 tmp = Vector2(x / Mag2(), y / Mag2());
 	return tmp;
 }
 
-float Vector2::DotProd(const Vector2 & A)
+float Vector2::DotProd2(const Vector2 & A)
 {
 	//[Dot Product]
 	//  ->A * ->B = Ax Bx + Ay By +.... An Bn
@@ -120,6 +120,7 @@ float Vector2::Gety() const
 
 
 #pragma region Vector3
+
 Vector3::Vector3(float X, float Y, float Z)
 {
 	x = X;
@@ -180,6 +181,64 @@ void Vector3::operator-=(const Vector3 & subEqual)
 	x = x - subEqual.x;
 	y = y - subEqual.y;
 	z = z - subEqual.z;
+}
+
+Vector3 Vector3::Add3(const Vector3 & A)
+{
+	// [Addition] 
+	//  ->A + ->B = ->C   =>  <Ax + By, Ay + By...., An, Bn>
+	Vector3 tmp = Vector3(x + A.x, y + A.y, z + A.z);
+	return tmp;
+}
+
+Vector3 Vector3::Subtract3(const Vector3 & A)
+{
+	// [Subtraction]
+	// ->A -  ->B = ->C   =>  <Ax - Bx, Ay - By, ..., An - Bn>
+	Vector3 tmp = Vector3(x - A.x, y - A.y, z - A.z);
+	return tmp;
+}
+
+Vector3 Vector3::ScalarMult3(float mult)
+{
+	// [Scalar Multipling]
+	//  Let K be a constant Variable
+	//  K   ->A  =>  < K . Ax, K . Ay>
+	Vector3 tmp = Vector3(x * mult, y * mult, z* mult);
+	return tmp;
+}
+
+float Vector3::Mag3()
+{
+	// [Magnitude] 
+	//  |->A|  =>  \| Ax * Ax + Ay * Ay
+	return sqrt((x * x) + (y*y) + (z*z));
+}
+
+Vector3 Vector3::Normal3()
+{
+	// [Normalize]
+	//  ^A  => < Ax/|->A| , Ay/|->A|>
+	Vector3 tmp = Vector3(x / Mag3(), y / Mag3(), z / Mag3());
+	return tmp;
+}
+
+float Vector3::DotProd3(const Vector3 & A)
+{
+	//[Dot Product]
+	//  ->A * ->B = Ax Bx + Ay By +.... An Bn
+	return (x *A.x) + (y*A.y) + (z*A.z);
+}
+
+Vector3 Vector3::CrossProd3(const Vector3 & A) const
+{
+	//[Cross Product]
+	// ->A X ->B  =  
+	// Ay Bz - Az By , x
+	// Ax Bz - Az Bx , y
+	// Ax By - Ay Bx , z
+	Vector3 tmp = Vector3(y *A.z - z * A.y, z * A.x - x * A.z, x* A.y - y* A.x);
+	return tmp;
 }
 
 
@@ -258,6 +317,44 @@ void Vector4::operator-=(const Vector4 & subEqual)
 	w = w - subEqual.w;
 }
 
+Vector4 Vector4::Subtract(const Vector4 & A)
+{
+	// [Subtraction]
+	// ->A -  ->B = ->C   =>  <Ax - Bx, Ay - By, ..., An - Bn>
+	Vector4 tmp = Vector4(x - A.x, y - A.y, z - A.z, w - A.w);
+	return tmp;
+}
+
+Vector4 Vector4::scalarMult(float mult)
+{
+	// [Scalar Multiplying]
+	//  Let K be a constant Variable
+	//  K   ->A  =>  < K . Ax, K . Ay>
+	Vector4 tmp = Vector4(x * mult, y * mult, z * mult, w *mult);
+	return tmp;
+}
+
+float Vector4::mag()
+{
+	// [Magnitude] 
+	//  |->A|  =>  \| Ax * Ax + Ay * Ay
+	return sqrt((x * x) + (y*y) + (z*z) + (w*w));
+}
+
+Vector4 Vector4::normal()
+{
+	// [Normalize]
+	//  ^A  => < Ax/|->A| , Ay/|->A|>
+	return Vector4(x / mag(), y / mag(), z / mag(), w / mag());
+}
+
+float Vector4::dotProd(const Vector4 & A)
+{
+	//[Dot Product]
+	//  ->A * ->B = Ax Bx + Ay By +.... An Bn
+	return (x *A.x) + (y*A.y) + (z*A.z) + (w*A.w);
+}
+
 
 #pragma endregion
 
@@ -299,6 +396,7 @@ bool Matrix2::operator==(Matrix2 & other) const
 
 
 #pragma region Matrix3
+
 Matrix3::Matrix3(float X1, float Y1, float Z1, float X2, float Y2, float Z2, float X3, float Y3, float Z3)
 {
 	x1 = X1;

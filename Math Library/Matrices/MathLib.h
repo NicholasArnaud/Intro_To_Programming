@@ -28,7 +28,7 @@ public:
 	//Overloads "+" to be able to add 2D Vectors
 	Vector2 operator + (const Vector2 & add)const;
 
-	//Overloads "-" to be able to subract 2D Vectors
+	//Overloads "-" to be able to subtract 2D Vectors
 	Vector2 operator - (const Vector2 & Sub)const;
 
 	//Overloads "*" to be able to multiply 2D Vectors
@@ -57,26 +57,26 @@ public:
 	//Math Problems
 
 	//Adds two 2D Vectors
-	Vector2 Add(const Vector2& A);
+	Vector2 Add2(const Vector2& A);
 
 	//Subtracts two 2D Vectors
-	Vector2 Substract(const Vector2& A);
+	Vector2 Subtract2(const Vector2& A);
 
 	//Scalar Multiplies a 2D Vector
 	//essentially multiplies a 2D Vector to a regular number
-	Vector2 ScalarMult(float mult);
+	Vector2 ScalarMult2(float mult);
 
 	//Gets the Magnitude of a 2D Vector
 	//which is x squared + y squared, and all square rooted
-	float Mag();
+	float Mag2();
 
 	//Normalizes a 3D vector
 	//it uses x, and y, each divided by the Magnitude to get normalization
-	Vector2 Normal();
+	Vector2 Normal2();
 
 	//Gets the Dot Product of 3D Vectors
 	//Multiplies each Vectors x, and y together and then adds them together 
-	float DotProd(const Vector2& A);
+	float DotProd2(const Vector2& A);
 
 
 	//Get variables
@@ -108,7 +108,7 @@ public:
 	//Overloads "+" to be able to add 3D Vectors
 	Vector3 operator + (const Vector3 & add)const;
 
-	//Overloads "-" to be able to subract 3D Vectors
+	//Overloads "-" to be able to subtract 3D Vectors
 	Vector3 operator - (const Vector3 & Sub)const;
 
 	//Overloads "*" to be able to multiply 3D Vectors
@@ -137,75 +137,31 @@ public:
 	//Math Problems
 
 	//Adds two 3D Vectors
-	Vector3 Add(const Vector3& A)
-	{
-		// [Addition] 
-		//  ->A + ->B = ->C   =>  <Ax + By, Ay + By...., An, Bn>
-		Vector3 tmp = Vector3(x + A.x, y + A.y, z + A.z);
-		return tmp;
-	}
+	Vector3 Add3(const Vector3& A);
 
 	//Subtracts two 3D Vectors
-	Vector3 Substract(const Vector3& A)
-	{
-		// [Subtraction]
-		// ->A -  ->B = ->C   =>  <Ax - Bx, Ay - By, ..., An - Bn>
-		Vector3 tmp = Vector3(x - A.x, y - A.y, z - A.z);
-		return tmp;
-	}
+	Vector3 Subtract3(const Vector3& A);
 
 	//Scalar Multiplies a 3D Vector
 	//essentially multiplies a 3D Vector to a regular number
-	Vector3 ScalarMult(float mult)
-	{
-		// [Scalar Multipling]
-		//  Let K be a constant Variable
-		//  K   ->A  =>  < K . Ax, K . Ay>
-		Vector3 tmp = Vector3(x * mult, y * mult, z* mult);
-		return tmp;
-	}
+	Vector3 ScalarMult3(float mult);
 
 
 	//Gets the Magnitude of a 3D Vector
 	//which is x squared + y squared + z squared, and all square rooted
-	float Mag()
-	{
-		// [Magnitude] 
-		//  |->A|  =>  \| Ax * Ax + Ay * Ay
-		return sqrt((x * x) + (y*y) + (z*z));
-	}
+	float Mag3();
 
 	//Normalizes a 3D vector
 	//it uses x,y,and z each divided by the Magnitude to get normalization
-	Vector3 Normal()
-	{
-		// [Normalize]
-		//  ^A  => < Ax/|->A| , Ay/|->A|>
-		Vector3 tmp = Vector3(x / Mag(), y / Mag(), z / Mag());
-		return tmp;
-	}
+	Vector3 Normal3();
 
 	//Gets the Dot Product of 3D Vectors
 	//Multiplies each Vectors x,y, and z together and then adds them together 
-	float DotProd(const Vector3& A)
-	{
-		//[Dot Product]
-		//  ->A * ->B = Ax Bx + Ay By +.... An Bn
-		return (x *A.x) + (y*A.y) + (z*A.z);
-	}
+	float DotProd3(const Vector3& A);
 
 	//Gets the Cross Product of two 3D Vectors
 	//Cross multiplies the two vectors
-	Vector3 CrossProd(const Vector3& A)const
-	{
-		//[Cross Product]
-		// ->A X ->B  =  
-		// Ay Bz - Az By , x
-		// Ax Bz - Az Bx , y
-		// Ax By - Ay Bx , z
-		Vector3 tmp = Vector3(y *A.z - z * A.y, z * A.x - x * A.z, x* A.y - y* A.x);
-		return tmp;
-	}
+	Vector3 CrossProd3(const Vector3& A)const;
 
 
 private:
@@ -231,7 +187,7 @@ public:
 	//Overloads "+" to be able to add 4D Vectors
 	Vector4 operator + (const Vector4 & add)const;
 
-	//Overloads "-" to be able to subract 4D Vectors
+	//Overloads "-" to be able to subtract 4D Vectors
 	Vector4 operator - (const Vector4 & Sub)const;
 
 	//Overloads "*" to be able to multiply 4D Vectors
@@ -270,51 +226,23 @@ public:
 	}
 
 	//Subtracts two 4D Vectors
-	Vector4 Substract(const Vector4& A)
-	{
-		// [Subtraction]
-		// ->A -  ->B = ->C   =>  <Ax - Bx, Ay - By, ..., An - Bn>
-		Vector4 tmp = Vector4(x - A.x, y - A.y, z - A.z, w - A.w);
-		return tmp;
-	}
+	Vector4 Subtract(const Vector4& A);
 
 	//Scalar Multiplies a 4D Vector
 	//essentially multiplies a 4D Vector to a regular number
-	Vector4 ScalarMult(float mult)
-	{
-		// [Scalar Multipling]
-		//  Let K be a constant Variable
-		//  K   ->A  =>  < K . Ax, K . Ay>
-		Vector4 tmp = Vector4(x * mult, y * mult, z * mult, w *mult);
-		return tmp;
-	}
+	Vector4 scalarMult(float mult);
 
 	//Gets the Magnitude of a 4D Vector
 	//which is x squared + y squared + z squared + w squared, and all square rooted
-	float Mag()
-	{
-		// [Magnitude] 
-		//  |->A|  =>  \| Ax * Ax + Ay * Ay
-		return sqrt((x * x) + (y*y) + (z*z) + (w*w));
-	}
+	float mag();
 
 	//Normalizes a 4D vector
 	//it uses x, y, z and w each divided by the Magnitude to get normalization
-	Vector4 Normal()
-	{
-		// [Normalize]
-		//  ^A  => < Ax/|->A| , Ay/|->A|>
-		return Vector4(x / Mag(), y / Mag(), z / Mag(), w / Mag());
-	}
+	Vector4 normal();
 
 	//Gets the Dot Product of 4D Vectors
 	//Multiplies each Vectors x,y, z and w together and then adds them together
-	float DotProd(const Vector4& A)
-	{
-		//[Dot Product]
-		//  ->A * ->B = Ax Bx + Ay By +.... An Bn
-		return (x *A.x) + (y*A.y) + (z*A.z) + (w*A.w);
-	}
+	float dotProd(const Vector4& A);
 
 
 private:

@@ -138,7 +138,7 @@
     <ClInclude Include="..\..\..\..\GitHub\Intro_To_Programming\Math Library\MathForGames\MathLib.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\GitHub\Intro_To_Programming\Math Library\MathForGames\MathLib.cpp" />
+    <ClCompile Include="..\..\Math Library\Matrices\MathLib.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

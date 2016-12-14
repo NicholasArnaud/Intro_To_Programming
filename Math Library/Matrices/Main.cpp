@@ -23,9 +23,9 @@ int main()
 	assert(A - B == Vector2(1, -1));
 	assert(A * B == Vector2(0, 0));
 
-	Dot.Add(Dot2);
-	A.DotProd(B);
-	norm.Normal();
+	Dot.Add2(Dot2);
+	A.DotProd2(B);
+	norm.Normal2();
 
 
 	Vector3 C = Vector3(1, 5, 10);
@@ -143,11 +143,11 @@ int main()
 		file << "Excpected Result is: 0,0 " << "\n\n\n\n";
 
 		file << "2D Vector Dot is: \n" << Dot << "\n" << "2D Vector Dot2 is: \n" << Dot2 << "\n";
-		file << "The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : " << "\n" << Dot.DotProd(Dot2) << "\n";
+		file << "The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : " << "\n" << Dot.DotProd2(Dot2) << "\n";
 		file << "Expected Result is: 70 \n\n\n";
 
 		file << "2D Vector norm is: \n" << norm << "\n";
-		file << "2D Vector norm Normalized is: \n" << norm.Normal() << "\n";
+		file << "2D Vector norm Normalized is: \n" << norm.Normal2() << "\n";
 		file << "Expected Result is: 0.20952 , 0.97780 \n\n\n\n";
 
 		file << "3D Vectors: \n" << "Vector C: " << C << "\n" << "Vector D: " << D << "\n\n";
