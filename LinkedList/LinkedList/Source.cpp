@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <math.h>
+#include <fstream>
 #include "ListIterator.h"
 
 
@@ -38,5 +39,23 @@ int main()
 	K->begin();
 	K->destroyList();
 	
+
+
+
+
+
+
+
+
+	std::fstream file;
+	file.open("LinkedListTest.txt", std::ios_base::out);
+	if (file.is_open())
+	{
+		file << "Length of Linked List is: \n"<<K->length()<< "\n\n\n";
+		file << "The last variable of the Linked List is: \n" << K->back()<<"\n\n\n";
+
+	}
+	file.close();
+
 	return 0;
 }

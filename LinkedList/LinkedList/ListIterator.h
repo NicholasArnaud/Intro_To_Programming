@@ -112,7 +112,7 @@ public:
 	//Postcondition: Node
 	void print() const
 	{
-		nodeType<Type> * current;
+		nodeType<Type> * current = new nodeType<Type> ;
 
 		for (int i = 1; i <= count; i++)
 		{
