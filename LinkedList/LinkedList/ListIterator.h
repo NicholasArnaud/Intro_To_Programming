@@ -27,7 +27,7 @@ public:
 	{
 		current = node;
 	}
-
+	
 	//Function to overlaod the dereferencing operator *
 	//Postcondition:Returns the info contained in the node
 	Type operator*()
@@ -112,31 +112,6 @@ public:
 	//Postcondition: Node
 	void print() const
 	{
-		//tried attempts:
-
-		/*linkedListType<Type> * tmp = new linkedListType<Type>();
-		for (int i = 0; i <= count; i++)
-			std::cout << tmp << "\n";
-		//outputs 000001CEAEABBDC10 4x
-		//likely since tmp is pointing at memory and not actually iterating through the list
-		*/
-
-		/*
-		for (int i = 0; i <= count; i++)
-			std::cout << first->info << "\n";
-		//outputs 10 4xs
-		// likely because it is reading only the first integer in the list and also not iterating through list
-		*/
-
-		/*
-		std::cout << first->info << "\n";
-		for (int i = 1; i <= count-2; i++)
-		{}
-		std::cout << last->info << "\n";
-		outputs : first and last node
-		//still does not print out in between other nodes
-		*/
-
 		nodeType<Type> * current;
 
 		for (int i = 1; i <= count; i++)

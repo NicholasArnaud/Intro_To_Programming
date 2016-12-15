@@ -222,6 +222,5 @@ int main()
 	}
 	file.close();
 
-
 	return 1;
 }

@@ -189,10 +189,9 @@ Vector3 Vector3::CrossProduct(const Vector3 & RHS) const
 	// Ay Bz - Az By , x
 	// Ax Bz - Az Bx , y
 	// Ax By - Ay Bx , z
-	Vector3 tmp = Vector3(m_y *RHS.m_z - m_z * RHS.m_y, m_z * RHS.m_x - m_x * RHS.m_z, m_x* RHS.m_y - m_y* RHS.m_x);
-	return tmp;
+	
+	return Vector3(m_y *RHS.m_z - m_z * RHS.m_y, m_z * RHS.m_x - m_x * RHS.m_z, m_x* RHS.m_y - m_y* RHS.m_x);
 }
-
 
 
 #pragma endregion
@@ -202,71 +201,71 @@ Vector3 Vector3::CrossProduct(const Vector3 & RHS) const
 
 Vector4::Vector4(float X1, float Y1, float Z1, float W1)
 {
-	x = X1;
-	y = Y1;
-	z = Z1;
-	w = W1;
+	m_x = X1;
+	m_y = Y1;
+	m_z = Z1;
+	m_w = W1;
 }
 
 Vector4 Vector4::operator+(const Vector4 & RHS) const
 {
 	Vector4 ADD;
-	ADD.x = x + RHS.x;
-	ADD.y = y + RHS.y;
-	ADD.z = z + RHS.z;
-	ADD.w = w + RHS.w;
+	ADD.m_x = m_x + RHS.m_x;
+	ADD.m_y = m_y + RHS.m_y;
+	ADD.m_z = m_z + RHS.m_z;
+	ADD.m_w = m_w + RHS.m_w;
 	return ADD;
 }
 
 Vector4 Vector4::operator-(const Vector4 & RHS) const
 {
 	Vector4 SUB;
-	SUB.x = x - RHS.x;
-	SUB.y = y - RHS.y;
-	SUB.z = z - RHS.z;
-	SUB.w = w - RHS.w;
+	SUB.m_x = m_x - RHS.m_x;
+	SUB.m_y = m_y - RHS.m_y;
+	SUB.m_z = m_z - RHS.m_z;
+	SUB.m_w = m_w - RHS.m_w;
 	return SUB;
 }
 
 Vector4 Vector4::operator*(const Vector4 & RHS) const
 {
 	Vector4 MULT;
-	MULT.x = x * RHS.x;
-	MULT.y = y * RHS.y;
-	MULT.z = z * RHS.z;
-	MULT.w = w * RHS.w;
+	MULT.m_x = m_x * RHS.m_x;
+	MULT.m_y = m_y * RHS.m_y;
+	MULT.m_z = m_z * RHS.m_z;
+	MULT.m_w = m_w * RHS.m_w;
 	return MULT;
 }
 
 Vector4 Vector4::operator*(const float & RHS) const
 {
 	Vector4 MULT;
-	MULT.x = x * RHS;
-	MULT.y = y * RHS;
-	MULT.z = z * RHS;
-	MULT.w = w * RHS;
+	MULT.m_x = m_x * RHS;
+	MULT.m_y = m_y * RHS;
+	MULT.m_z = m_z * RHS;
+	MULT.m_w = m_w * RHS;
 	return MULT;
 }
 
 bool Vector4::operator==(const Vector4 & RHS) const
 {
-	return ((x == RHS.x) && (y == RHS.y) && (z == RHS.z) && (w == RHS.w));
+	return ((m_x == RHS.m_x) && (m_y == RHS.m_y) && (m_z == RHS.m_z) && (m_w == RHS.m_w));
 }
 
 void Vector4::operator+=(const Vector4 & RHS)
 {
-	x = x + RHS.x;
-	y = y + RHS.y;
-	z = z + RHS.z;
-	w = w + RHS.w;
+	m_x = m_x + RHS.m_x;
+	m_y = m_y + RHS.m_y;
+	m_z = m_z + RHS.m_z;
+	m_w = m_w + RHS.m_w;
 }
 
 void Vector4::operator-=(const Vector4 & RHS)
 {
-	x = x - RHS.x;
-	y = y - RHS.y;
-	z = z - RHS.z;
-	w = w - RHS.w;
+	m_x = m_x - RHS.m_x;
+	m_y = m_y - RHS.m_y;
+	m_z = m_z - RHS.m_z;
+	m_w = m_w - RHS.m_w;
 }
 
 
@@ -275,21 +274,21 @@ float Vector4::Magnitude()
 {
 	// [Magnitude] 
 	//  |->A|  =>  \| Ax * Ax + Ay * Ay
-	return sqrt((x * x) + (y*y) + (z*z) + (w*w));
+	return sqrt((m_x * m_x) + (m_y*m_y) + (m_z*m_z) + (m_w*m_w));
 }
 
 Vector4 Vector4::Normalize()
 {
 	// [Normalize]
 	//  ^A  => < Ax/|->A| , Ay/|->A|>
-	return Vector4(x / Magnitude(), y / Magnitude(), z / Magnitude(), w / Magnitude());
+	return Vector4(m_x / Magnitude(), m_y / Magnitude(), m_z / Magnitude(), m_w / Magnitude());
 }
 
 float Vector4::Dot(const Vector4 & RHS)
 {
 	//[Dot Product]
 	//  ->A * ->B = Ax Bx + Ay By +.... An Bn
-	return (x *RHS.x) + (y*RHS.y) + (z*RHS.z) + (w*RHS.w);
+	return (m_x *RHS.m_x) + (m_y*RHS.m_y) + (m_z*RHS.m_z) + (m_w*RHS.m_w);
 }
 
 

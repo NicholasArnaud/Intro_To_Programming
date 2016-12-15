@@ -26,28 +26,28 @@ public:
 	//Operator Over Loaders
 
 	//Overloads "+" to be able to add 2D Vectors
-	Vector2 operator + (const Vector2 & add)const;
+	Vector2 operator + (const Vector2 & RHS)const;
 
 	//Overloads "-" to be able to subtract 2D Vectors
-	Vector2 operator - (const Vector2 & Sub)const;
+	Vector2 operator - (const Vector2 & RHS)const;
 
 	//Overloads "*" to be able to multiply 2D Vectors
-	Vector2 operator * (const Vector2 & Mult)const;
+	Vector2 operator * (const Vector2 & RHS)const;
 
 	//Overloads "*" to be able to multiply 2D Vectors with a regular number
-	Vector2 operator * (const float & Mult)const;
+	Vector2 operator * (const float & RHS)const;
 
 	//Overloads "==" to be able to compare 2D Vectors
-	bool operator == (const Vector2 & equal) const;
+	bool operator == (const Vector2 & RHS) const;
 
 	//Overloads "+=" to add and set a new value of 2D Vectors 
-	void operator += (const Vector2 & plusEqual);
+	void operator += (const Vector2 & RHS);
 
 	//Overloads "-=" to add and set a new value of 2D Vectors 
-	void operator -= (const Vector2 & subEqual);
+	void operator -= (const Vector2 & RHS);
 
 	//Overloads "<<" to be able to print out 2D Vectors
-	friend std::ostream& operator << (std::ostream& output, const Vector2 &v)
+	friend std::ostream& operator << (std::ostream& output, const Vector2 & v)
 	{
 		output << v.m_x << "," << v.m_y;
 		return output;
@@ -66,7 +66,7 @@ public:
 
 	//Gets the Dot Product of 3D Vectors
 	//Multiplies each Vectors x, and y together and then adds them together 
-	float Dot(const Vector2& A);
+	float Dot(const Vector2& RHS);
 
 
 	//Get variables
@@ -96,25 +96,25 @@ public:
 	//Operator Over Loaders
 
 	//Overloads "+" to be able to add 3D Vectors
-	Vector3 operator + (const Vector3 & add)const;
+	Vector3 operator + (const Vector3 & RHS)const;
 
 	//Overloads "-" to be able to subtract 3D Vectors
-	Vector3 operator - (const Vector3 & Sub)const;
+	Vector3 operator - (const Vector3 & RHS)const;
 
 	//Overloads "*" to be able to multiply 3D Vectors
-	Vector3 operator * (const Vector3 & Mult)const;
+	Vector3 operator * (const Vector3 & RHS)const;
 
 	//Overloads "*" to be able to multiply 3D Vectors with a regular number
-	Vector3 operator * (const float & Mult)const;
+	Vector3 operator * (const float & RHS)const;
 
 	//Overloads "==" to be able to compare 3D Vectors
-	bool operator == (const Vector3 & equal) const;
+	bool operator == (const Vector3 & RHS) const;
 
 	//Overloads "+=" to add and set a new value of 2D Vectors 
-	void operator += (const Vector3 & plusEqual);
+	void operator += (const Vector3 & RHS);
 
 	//Overloads "-=" to subtract and set a new value of 3D Vectors 
-	void operator -= (const Vector3 & subEqual);
+	void operator -= (const Vector3 & RHS);
 
 	//Overloads "<<" to be able to print out 3D Vectors
 	friend std::ostream& operator << (std::ostream& output, const Vector3 v)
@@ -126,15 +126,6 @@ public:
 
 	//Math Problems
 
-	//Adds two 3D Vectors
-	Vector3 Add3(const Vector3& A);
-
-	//Subtracts two 3D Vectors
-	Vector3 Subtract3(const Vector3& A);
-
-	//Scalar Multiplies a 3D Vector
-	//essentially multiplies a 3D Vector to a regular number
-	Vector3 ScalarMult3(float mult);
 
 
 	//Gets the Magnitude of a 3D Vector
@@ -147,11 +138,11 @@ public:
 
 	//Gets the Dot Product of 3D Vectors
 	//Multiplies each Vectors x,y, and z together and then adds them together 
-	float Dot(const Vector3& A);
+	float Dot(const Vector3& RHS);
 
 	//Gets the Cross Product of two 3D Vectors
 	//Cross multiplies the two vectors
-	Vector3 CrossProduct(const Vector3& A)const;
+	Vector3 CrossProduct(const Vector3& RHS)const;
 
 
 private:
@@ -175,30 +166,30 @@ public:
 	//Operator Over Loaders
 
 	//Overloads "+" to be able to add 4D Vectors
-	Vector4 operator + (const Vector4 & add)const;
+	Vector4 operator + (const Vector4 & RHS)const;
 
 	//Overloads "-" to be able to subtract 4D Vectors
-	Vector4 operator - (const Vector4 & Sub)const;
+	Vector4 operator - (const Vector4 & RHS)const;
 
 	//Overloads "*" to be able to multiply 4D Vectors
-	Vector4 operator * (const Vector4 & Mult)const;
+	Vector4 operator * (const Vector4 & RHS)const;
 
 	//Overloads "*" to be able to multiply 4D Vectors with a regular number
-	Vector4 operator * (const float & Mult)const;
+	Vector4 operator * (const float & RHS)const;
 
 	//Overloads "==" to be able to compare 4D Vectors
-	bool operator == (const Vector4 & equal) const;
+	bool operator == (const Vector4 & RHS) const;
 
 	//Overloads "+=" to add and set a new value of 4D Vectors 
-	void operator += (const Vector4 & plusEqual);
+	void operator += (const Vector4 & RHS);
 
 	//Overloads "-=" to subtract and set a new value of 4D Vectors 
-	void operator -= (const Vector4 & subEqual);
+	void operator -= (const Vector4 & RHS);
 
 	//Overloads "<<" to be able to print out 4D Vectors
 	friend std::ostream &operator << (std::ostream &output, const Vector4 & v)
 	{
-		output << v.x << ", " << v.y << ", " << v.z << ", " << v.w;
+		output << v.m_x << ", " << v.m_y << ", " << v.m_z << ", " << v.m_w;
 		return output;
 	}
 
@@ -217,11 +208,11 @@ public:
 
 	//Gets the Dot Product of 4D Vectors
 	//Multiplies each Vectors x,y, z and w together and then adds them together
-	float Dot(const Vector4& A);
+	float Dot(const Vector4& RHS);
 
 
 private:
-	float x, y, z, w;
+	float m_x, m_y, m_z, m_w;
 };
 
 
@@ -267,12 +258,12 @@ public:
 
 	// Operator Overloaders
 
-	Matrix2 operator* (const Matrix2 & mult) const;
+	Matrix2 operator* (const Matrix2 & RHS) const;
 
 
-	Vector2 operator * (const Vector2 & a);
+	Vector2 operator * (const Vector2 & RHS);
 
-	bool operator == (Matrix2 & other)const;
+	bool operator == (Matrix2 & RHS)const;
 
 	friend std::ostream &operator << (std::ostream &output, const Matrix2 & v)
 	{
@@ -312,9 +303,9 @@ public:
 		float X2, float Y2, float Z2,
 		float X3, float Y3, float Z3);
 
-	Matrix3 operator* (const Matrix3 & mult) const;
+	Matrix3 operator* (const Matrix3 & RHS) const;
 
-	bool operator == (Matrix3 & other)const;
+	bool operator == (Matrix3 & RHS)const;
 
 	friend std::ostream &operator << (std::ostream &output, const Matrix3 & v)
 	{
@@ -362,9 +353,9 @@ public:
 		float X3, float Y3, float Z3, float W3,
 		float X4, float Y4, float Z4, float W4);
 
-	Matrix4 operator * (const Matrix4 & mult) const;
+	Matrix4 operator * (const Matrix4 & RHS) const;
 
-	bool operator == (Matrix4 & other)const;
+	bool operator == (Matrix4 & RHS)const;
 
 	friend std::ostream &operator << (std::ostream &output, const Matrix4 & v)
 	{
