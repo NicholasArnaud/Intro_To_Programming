@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrices", "Matrices\Matrices.vcxproj", "{3A408102-A399-41CE-BD98-82691915F1F7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Integration", "Integration\Integration.vcxproj", "{62A6FFC9-9AAA-4927-B717-AB9EF8994999}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math For Games", "Math for Games\Math for Games.vcxproj", "{3A408102-A399-41CE-BD98-82691915F1F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Debug|x64.ActiveCfg = Debug|x64
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Debug|x64.Build.0 = Debug|x64
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Debug|x86.ActiveCfg = Debug|Win32
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Debug|x86.Build.0 = Debug|Win32
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Release|x64.ActiveCfg = Release|x64
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Release|x64.Build.0 = Release|x64
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Release|x86.ActiveCfg = Release|Win32
+		{62A6FFC9-9AAA-4927-B717-AB9EF8994999}.Release|x86.Build.0 = Release|Win32
 		{3A408102-A399-41CE-BD98-82691915F1F7}.Debug|x64.ActiveCfg = Debug|x64
 		{3A408102-A399-41CE-BD98-82691915F1F7}.Debug|x64.Build.0 = Debug|x64
 		{3A408102-A399-41CE-BD98-82691915F1F7}.Debug|x86.ActiveCfg = Debug|Win32

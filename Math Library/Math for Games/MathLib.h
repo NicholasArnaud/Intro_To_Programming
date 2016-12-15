@@ -49,34 +49,24 @@ public:
 	//Overloads "<<" to be able to print out 2D Vectors
 	friend std::ostream& operator << (std::ostream& output, const Vector2 &v)
 	{
-		output << v.x << "," << v.y;
+		output << v.m_x << "," << v.m_y;
 		return output;
 	}
 
 
 	//Math Problems
 
-	//Adds two 2D Vectors
-	Vector2 Add2(const Vector2& A);
-
-	//Subtracts two 2D Vectors
-	Vector2 Subtract2(const Vector2& A);
-
-	//Scalar Multiplies a 2D Vector
-	//essentially multiplies a 2D Vector to a regular number
-	Vector2 ScalarMult2(float mult);
-
 	//Gets the Magnitude of a 2D Vector
 	//which is x squared + y squared, and all square rooted
-	float Mag2();
+	float Magnitude();
 
 	//Normalizes a 3D vector
 	//it uses x, and y, each divided by the Magnitude to get normalization
-	Vector2 Normal2();
+	Vector2 Normalize();
 
 	//Gets the Dot Product of 3D Vectors
 	//Multiplies each Vectors x, and y together and then adds them together 
-	float DotProd2(const Vector2& A);
+	float Dot(const Vector2& A);
 
 
 	//Get variables
@@ -86,7 +76,7 @@ public:
 
 
 private:
-	float x, y;
+	float m_x, m_y;
 };
 
 
@@ -129,7 +119,7 @@ public:
 	//Overloads "<<" to be able to print out 3D Vectors
 	friend std::ostream& operator << (std::ostream& output, const Vector3 v)
 	{
-		output << v.x << "," << v.y << "," << v.z;
+		output << v.m_x << "," << v.m_y << "," << v.m_z;
 		return output;
 	}
 
@@ -149,23 +139,23 @@ public:
 
 	//Gets the Magnitude of a 3D Vector
 	//which is x squared + y squared + z squared, and all square rooted
-	float Mag3();
+	float Magnitude();
 
 	//Normalizes a 3D vector
 	//it uses x,y,and z each divided by the Magnitude to get normalization
-	Vector3 Normal3();
+	Vector3 Normalize();
 
 	//Gets the Dot Product of 3D Vectors
 	//Multiplies each Vectors x,y, and z together and then adds them together 
-	float DotProd3(const Vector3& A);
+	float Dot(const Vector3& A);
 
 	//Gets the Cross Product of two 3D Vectors
 	//Cross multiplies the two vectors
-	Vector3 CrossProd3(const Vector3& A)const;
+	Vector3 CrossProduct(const Vector3& A)const;
 
 
 private:
-	float x, y, z;
+	float m_x, m_y, m_z;
 };
 
 
@@ -216,33 +206,18 @@ public:
 
 	//Math Problems
 
-	//Adds two 4D Vectors
-	Vector4 Add(const Vector4& A)
-	{
-		// [Addition] 
-		//  ->A + ->B = ->C   =>  <Ax + By, Ay + By...., An, Bn>
-		Vector4 tmp = Vector4(x + A.x, y + A.y, z + A.z, w + A.w);
-		return tmp;
-	}
-
-	//Subtracts two 4D Vectors
-	Vector4 Subtract(const Vector4& A);
-
-	//Scalar Multiplies a 4D Vector
-	//essentially multiplies a 4D Vector to a regular number
-	Vector4 scalarMult(float mult);
 
 	//Gets the Magnitude of a 4D Vector
 	//which is x squared + y squared + z squared + w squared, and all square rooted
-	float mag();
+	float Magnitude();
 
 	//Normalizes a 4D vector
 	//it uses x, y, z and w each divided by the Magnitude to get normalization
-	Vector4 normal();
+	Vector4 Normalize();
 
 	//Gets the Dot Product of 4D Vectors
 	//Multiplies each Vectors x,y, z and w together and then adds them together
-	float dotProd(const Vector4& A);
+	float Dot(const Vector4& A);
 
 
 private:

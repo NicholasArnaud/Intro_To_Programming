@@ -14,8 +14,8 @@ int main()
 	Vector2 A = Vector2(1, 0);
 	Vector2 B = Vector2(0, 1);
 
-	Vector2 Dot = Vector2(5, 10);
-	Vector2 Dot2 = Vector2(2, 6);
+	Vector2 dot = Vector2(5, 10);
+	Vector2 dot2 = Vector2(2, 6);
 
 	Vector2 norm = Vector2(3, 14);
 
@@ -23,16 +23,16 @@ int main()
 	assert(A - B == Vector2(1, -1));
 	assert(A * B == Vector2(0, 0));
 
-	Dot.Add2(Dot2);
-	A.DotProd2(B);
-	norm.Normal2();
+	
+	A.Dot(B);
+	norm.Normalize();
 
 
 	Vector3 C = Vector3(1, 5, 10);
 	Vector3 D = Vector3(10, 2, 5);
-	C.CrossProd(D);
-	C.Mag();
-	C.Normal();
+	C.CrossProduct(D);
+	C.Magnitude();
+	C.Normalize();
 
 	assert(C + D == Vector3(11, 7, 15));
 	assert(C - D == Vector3(-9, 3, 5));
@@ -44,9 +44,9 @@ int main()
 	assert(E + F == Vector4(6, 8, 10, 12));
 	assert(E - F == Vector4(-4, -4, -4, -4));
 	assert(E * F == Vector4(5, 12, 21, 32));
-	E.DotProd(F);
-	E.Mag();
-	E.Normal();
+	E.Dot(F);
+	E.Magnitude();
+	E.Normalize();
 
 
 	//////////////////////////////////////////////////
@@ -142,12 +142,12 @@ int main()
 		file << "Vector A * Vector B equals: " << "\n" << A * B << "\n";
 		file << "Excpected Result is: 0,0 " << "\n\n\n\n";
 
-		file << "2D Vector Dot is: \n" << Dot << "\n" << "2D Vector Dot2 is: \n" << Dot2 << "\n";
-		file << "The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : " << "\n" << Dot.DotProd2(Dot2) << "\n";
+		file << "2D Vector Dot is: \n" << dot << "\n" << "2D Vector Dot2 is: \n" << dot2 << "\n";
+		file << "The Dot Product of 2D Vector Dot with 2D Vector Dot2 is : " << "\n" << dot.Dot(dot2) << "\n";
 		file << "Expected Result is: 70 \n\n\n";
 
 		file << "2D Vector norm is: \n" << norm << "\n";
-		file << "2D Vector norm Normalized is: \n" << norm.Normal2() << "\n";
+		file << "2D Vector norm Normalized is: \n" << norm.Normalize() << "\n";
 		file << "Expected Result is: 0.20952 , 0.97780 \n\n\n\n";
 
 		file << "3D Vectors: \n" << "Vector C: " << C << "\n" << "Vector D: " << D << "\n\n";
@@ -162,16 +162,16 @@ int main()
 		file << "Vector C * Vector D equals: " << "\n" << C * D << "\n";
 		file << "Excpected Result is: 10, 10, 50 " << "\n\n\n";
 
-		file << "The Cross Product of Vector C with Vector D is: \n" << C.CrossProd(D) << "\n";
+		file << "The Cross Product of Vector C with Vector D is: \n" << C.CrossProduct(D) << "\n";
 		file << "Expected Result is: 5,95,-48" << "\n\n\n";
 
-		file << "The Dot Product of Vector C with Vector D is: \n" << C.DotProd(D) << "\n";
+		file << "The Dot Product of Vector C with Vector D is: \n" << C.Dot(D) << "\n";
 		file << "Expected Result is: 70" << "\n\n\n";
 
-		file << "The Magnitude of Vector C is: \n" << C.Mag() << "\n";
+		file << "The Magnitude of Vector C is: \n" << C.Magnitude() << "\n";
 		file << "Expected Result is: 11.225" << "\n\n\n";
 
-		file << "Normalization of Vector C is: \n" << C.Normal() << "\n";
+		file << "Normalization of Vector C is: \n" << C.Normalize() << "\n";
 		file << "Expected Result is: 0.0890871,0.445435,0.890871" << "\n\n\n\n";
 
 		file << "4D Vectors: \n" << "Vector E: " << E << "\n" << "Vector F: " << F << "\n\n";
@@ -186,10 +186,10 @@ int main()
 		file << "Vector E * Vector F equals: " << "\n" << E * F << "\n";
 		file << "Excpected Result is: 5, 12, 21, 32 " << "\n\n\n";
 
-		file << "The Magnitude of Vector E is: \n" << E.Mag() << "\n";
+		file << "The Magnitude of Vector E is: \n" << E.Magnitude() << "\n";
 		file << "Expected Result is: 5.47723" << "\n\n\n";
 
-		file << "Vector E Normalized is: " << E.Normal() << "\n";
+		file << "Vector E Normalized is: " << E.Normalize() << "\n";
 		file << "Expected Result is: 0.182574, 0.365148, 0.547723, 0.730297" << "\n\n\n";
 
 		file << "2D Matrix for multiplying a 2D Vector: \n" << K << "\n";
