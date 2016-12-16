@@ -148,7 +148,7 @@ public:
 	//the first element of the list is returned
 	Type front() const
 	{
-		assert(count != 0);
+		assert(count > 0);
 		return first->info;
 	}
 
@@ -158,7 +158,7 @@ public:
 	//the last element of the list is returned
 	Type back() const
 	{
-		assert(count != 0);
+		assert(count >0);
 		return last->info;
 	}
 
@@ -207,29 +207,24 @@ public:
 	//the list, and count is incremented by 1;
 	void insertLast(const Type& nodeInfo)
 	{
-
+		nodeType<Type> * newNode;
+		newNode = new nodeType<Type>;
 		if (count == 0)
 		{
 			first->info = nodeInfo;
-			first->link = NULL;
+			first->link = nullptr;
 			last->info = nodeInfo;
-			last->link = NULL;
+			last->link = nullptr;
 			count++;
 		}
 		else
 		{
-			nodeType<Type> * newNode;
-			newNode = new nodeType<Type>;
 			last->link = newNode;
 			last = newNode;
-
 			if (count == 1)
-			{
 				first->link = newNode;
-			}
-
 			last->info = nodeInfo;
-			last->link = NULL;
+			last->link = nullptr;
 			count++;
 		}
 	}
