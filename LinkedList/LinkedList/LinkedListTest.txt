@@ -1,0 +1,20 @@
+Length of Linked List is: 
+3
+
+
+The last variable of the Linked List is: 
+7
+
+
+The first variable of the Linked List is: 
+10
+
+
+Is the List empty?  
+0
+
+
+Searching for '7'... it is found? 
+0
+
+

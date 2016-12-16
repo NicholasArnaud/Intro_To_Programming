@@ -38,7 +38,7 @@ int main()
 	K->print();
 	K->end();
 	K->begin();
-	K->destroyList();
+	
 	
 	std::fstream file;
 	file.open("LinkedListTest.txt", std::ios_base::out);
@@ -49,9 +49,10 @@ int main()
 		file << "The first variable of the Linked List is: \n" << K->front() << "\n\n\n";
 		file << "Is the List empty?  \n" << K->isEmptyList() << "\n\n\n";
 		file << "Searching for '7'... it is found? \n" << K->search(7) << "\n\n\n";
-	
 	}
 	file.close();
 
+
+K->destroyList();
 	return 0;
 }
